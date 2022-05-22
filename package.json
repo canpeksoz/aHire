@@ -10,5 +10,14 @@
   "license": "ISC",
   "dependencies": {
     "firebase": "^9.8.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canpeksoz/aHire.git"
+  },
+  "bugs": {
+    "url": "https://github.com/canpeksoz/aHire/issues"
+  },
+  "homepage": "https://github.com/canpeksoz/aHire#readme"
 }
