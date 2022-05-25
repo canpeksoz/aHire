@@ -422,40 +422,43 @@
                     <h4>Please fill your information in this form</h4>
                 </header>
                 <main>
+
                     <form>
                         <div class="form-item box-item">
-                            <input type="text" name="title" class="tx1" placeholder="Title" data-required>
+                            <input type="text" name="title" class="tx1" id="title" placeholder="Title" data-required>
                             <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> required
                                 field</small>
                         </div>
                         <div class="form-item box-item">
-                            <input type="text" name="description" class="tx1" placeholder="Description" data-required>
+                            <input type="text" name="description" class="tx1" id="description" placeholder="Description" data-required>
                             <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> required
                                 field</small>
                         </div>
                         <div class="form-item box-item">
-                            <input type="number" name="price" placeholder="Price" data-required>
+                            <input type="number" name="price" id="price" placeholder="Price" data-required>
                             <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> required
                                 field</small>
                         </div>
                         <div class="form-item box-item">
-                            <input type="number" name="time" class="tx1" placeholder="Deadline (day)" data-email data-required>
+                            <input type="number" name="time" class="tx1" id="time" placeholder="Deadline (day)" data-required>
                             <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> required
                                 field</small>
-                            <small class="errorEmail"><i class="fa fa-asterisk" aria-hidden="true"></i> email is not
-                                valid</small>
                         </div>
                         <div class="form-item box-item">
 
                             <div class="form-item box-item">
+                                
                                 <span>Category:</span>
-                                <select name="Category" class="select" id="">
-                                    <option value="20">Software & Technology</option>
+                                <select name="Category" class="select" id="category" value="category" data-required>
+                                    <option value="">Select a Category</option>
+                                    <option value="software">Software & Technology</option>
+                                    <option value="graphic">Graphic Desing</option>
+                                    <option value="sound">Sound & Music</option>
+                                    <option value="transportation">Transportation</option>
+                                    <option value="repair">Repair</option>
+
                                 </select>
-                                <span>Sub Category:</span>
-                                <select name="Category" class="select" id="">
-                                    <option value="20">Web App</option>
-                                </select>
+                                
                             </div>
                             
                         </div>
@@ -509,9 +512,7 @@
                         </div>
                     </form>
                 </main>
-                <footer>
-                    <p>Already have an account? <a href="Login.html">Login</a></p>
-                </footer>
+                
                 <i class="wave"></i>
             </section>
         </div>
