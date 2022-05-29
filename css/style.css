@@ -25,6 +25,7 @@ body{
 	padding: 20px 0;
 	position: relative;
 	text-align: left;
+  
 }
 
 /* ****************************************
@@ -39,24 +40,40 @@ body{
 	background-color: #171717;
 	color: white;
 	text-align: center;
+
+
+ }
+ .description {
+  text-align: center;
+  padding-top: 350px;
+position: fixed;
+
+    width: 100%;
+
+  
+  
+
+
  }
 
-.top-bar {
-  padding: 10px 0;
-  background: #090909;
-  border-bottom: 1px solid #222;
-  line-height: 28px;
-}
+
 
 .social{
   text-align: center;
+  
+
+  
 }
 
 .social-share{
  display: inline-block;
  list-style: none;
- padding: 0;
- margin: 0;
+ text-align: center;
+
+
+ 
+
+ 
 }
 
 ul.social-share li {
@@ -74,16 +91,17 @@ ul.social-share li a {
   border-radius: 2px;
 }
 
-ul.social-share li a:hover {
-  background: #34A853;
-  color: #fff;
-}
 
 #footer {
   padding-top: 30px;
   padding-bottom: 30px;
   color: #fff;
   background: #000;
+  position: absolute;
+    bottom: 10px;
+    width: 100%;
+ 
+
 }
 
 #footer a {
@@ -112,6 +130,10 @@ ul.social-share li a:hover {
 	text-align: center;
 	color: #fff;
 	font-weight: 500;
+  position: absolute;
+    bottom: 10px;
+    width: 50%;
+    border: 3px solid #8AC007;
 }
 .footer .top {
 	background: #232323;
@@ -126,5 +148,6 @@ ul.social-share li a:hover {
 }
 .footer .social-icons {
 	margin-bottom: 24px;
+  
 }
 
