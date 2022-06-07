@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Stripe Checkout Sample</title>
+</head>
+
+<body>
+
+    <style>body {
+  font-family: sans-serif;
+}
+
+.card {
+  margin: 100px auto;
+  width: 30%;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px #00000029;
+  border-radius: 15px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-weight: bold;
+  margin: 0px 0px 5px 0px;
+  font-size: 16pt;
+}
+
+.card p.price {
+  font-weight: normal;
+  color: #a5a5a5;
+  margin: 0px 0px 20px 0px;
+  font-size: 12pt;
+}
+
+.card button {
+  width: 100%;
+  height: 30px;
+  border-radius: 15px;
+  color: white;
+  background-color: #3e7dff;
+  border: none;
+  padding: 5px 0px 5px 0px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 8pt;
+  cursor: pointer;
+}</style>
+
+    <div class="card">
+
+        <p>New Camera</p>
+        <p class="price">$100.00</p>
+        <button id="checkout-button">Checkout</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.2/firebase-functions.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="js/scripts.js"></script>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.isotope.min.js"></script>
+        <script src="js/fancybox/jquery.fancybox.pack.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/functions.js"></script>
+        <script type="module" src="js/firebase.js"></script>
+</body>
+
+</html>
