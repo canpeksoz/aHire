@@ -8,7 +8,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Posting</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css" />
@@ -22,17 +21,6 @@
 <body>
 
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Posting</title>
-
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <link rel="stylesheet" href="style.css">
-
-
-    </head>
 
     <body>
         <style>
@@ -356,14 +344,23 @@
                         <!-- Replaced app client ID -->
                         <script
                             src="https://www.paypal.com/sdk/js?client-id=AZecrFBQLNekrbUyuRVKkAn_G3J9tMc_FaXF73xZwihv28L0FKkZBk2Vr9cLZQ9px3_zvYc1I1be2XNm"></script>
+                        
+                        
+
+                            
+
+                       
                         <script>
+
+
                             paypal.Buttons({
+
                                 // Sets up the transaction when a payment button is clicked
                                 createOrder: (data, actions) => {
                                     return actions.order.create({
                                         purchase_units: [{
                                             amount: {
-                                                value: '299.99' // Can also reference a variable or function
+                                                value: 'price' // Can also reference a variable or function
                                             }
                                         }]
                                     });
@@ -405,8 +402,6 @@
 
 
 
-        <script src="function.js"></script>
-
 
 
 
@@ -433,5 +428,7 @@
     <script src="js/wow.min.js"></script>
     <script src="js/functions.js"></script>
 </body>
+        <script type="module" src="js/firebase.js"></script>
+        <script type="module" src="js/pay.js"></script>
 
 </html>

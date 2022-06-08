@@ -81,6 +81,8 @@
     </header>
 
     <br></br>
+
+
     <!-- column content -->
     <div id="main-content">
         <div class="container">
@@ -99,7 +101,7 @@
                                 <th>Price</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <body>
                             <!-- row 1 -->
                             <tr>
                                 <th>
@@ -108,9 +110,9 @@
                                 <th>
                                     <a href="" id="category" title="Software&Technology"
                                         rel="Web Design">Software&Technology</a>
-                                </th>
+                                </th>   
                                 <td id="day">2</td>
-                                <td id="price">4000₺</td>
+                                <td id="price">4000</td>
                                 <td>
                                     
                                         <a href="chat.html">
@@ -120,7 +122,10 @@
                                         
                                 </td>
                                 <!-- <td><a href="paypal.html" target="payment" title="Payment" id="paypalPayment" rel="Payment">Payment</a></td>-->
-                                <td><a class="btn" id="paypalPayment" target="__blank" href="paypal.html">Payment</a>
+                                <td>
+                                    <!-- <a class="btn" id="paypalPayment" target="__blank" href="paypal.html">Payment</a>-->
+                                  <input type="submit" id="paypalPayment" name="paypalPayment" value="Pay Now" onclick="paypal"()>
+                            <!-- <td><input type="submit" value="Payment" class="btn" id="goPayment" onclick="PaymentRequest"></td>-->
                                 </td>
 
 
@@ -128,11 +133,92 @@
                             <!-- row 2 -->
 
 
-                        </tbody>
+                        </body>
                     </table>
                 </div>
             </div>
         </div>
+
+
+        <div class="row">
+            <section class="section">
+                <header>
+                    <h3>Payment</h3>
+                    <h4>Please select your payment method.</h4>
+                </header>
+                <main>
+        
+                    <form>
+                        <!-- Set up a container element for the button -->
+                        <div id="paypal-button-container"></div>
+        
+                        <!-- Replaced app client ID -->
+                        <script
+                            src="https://www.paypal.com/sdk/js?client-id=AZecrFBQLNekrbUyuRVKkAn_G3J9tMc_FaXF73xZwihv28L0FKkZBk2Vr9cLZQ9px3_zvYc1I1be2XNm"></script>
+        
+        
+        
+        
+        
+        
+                        <script>
+                               
+                               paypalPayment.addEventListener('click', (e) => {
+                                 var fee = document.getElementById('price').innerText;
+                                    
+                                    console.log(fee);
+
+                                    paypal.Buttons({
+
+                                       // Sets up the transaction when a payment button is clicked
+                                       createOrder: (data, actions) => {
+                                           return actions.order.create({
+                                               purchase_units: [{
+                                                   amount: {
+                                                       value: fee // Can also reference a variable or function
+                                                   }
+                                               }]
+                                           });
+                                       },
+                                       // Finalize the transaction after payer approval
+                                       onApprove: (data, actions) => {
+                                           return actions.order.capture().then(function (orderData) {
+                                               // Successful
+                                               console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                                               const transaction = orderData.purchase_units[0].payments.captures[0];
+                                               alert(`Transaction ${transaction.status}: ${transaction.id}\n\Transaction Completed.`);
+                                               // When ready to go live, remove the alert and show a success message within this page. For example:
+                                               const element = document.getElementById('paypal-button-container');
+                                               //element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                                               // Or go to another URL:  
+                                               // actions.redirect('employerAfterLoginHome.html');
+                                               window.location.replace('employerAfterLoginHome.html');
+                                           });
+                                       },
+
+                                       style: {
+                                           layout: 'vertical',
+                                           color: 'blue',
+                                           shape: 'pill',
+                                           label: 'paypal'
+                                       }
+                                   }).render('#paypal-button-container');
+
+                                });
+
+
+                            
+                        </script>
+        
+                    </form>
+                </main>
+        
+        
+            </section>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 
 
 
@@ -150,5 +236,8 @@
         <script type="module" src="/js/firebase.js"></script>
 
 </body>
+
+        <!--<script type="module" src="js/pay.js"></script>-->
+
 
 </html>

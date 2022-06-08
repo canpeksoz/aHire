@@ -1,8 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
 //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
 import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
-
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBExhGEGFVitugDVDoNYW2c4qeDyVQdqJQ",
@@ -63,42 +62,54 @@ alert(errorMessage)
 
 });
 
+resetPassword.addEventListener('click', (e) => {
 
-recoverPass.addEventListener('click', (e) => {
-
-    email = document.getElementById('mail').value;
-    auth.sendPasswordResetEmail(email)
-.then(function() {  
-// Email sent.
-})
-.catch(function(error) {
-// An error happened.
-})
+  var email = document.getElementById('recoverPass').value;
+  
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        console.log("SUCCESS")
+        alert("SUCCESS")
+    // Password reset email sent!
+    // ..
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage)
+    // ..
+  });
 
 
 
 });
-function recoverPass() {
-    $.ajax({
-      type: 'POST',
-      url: 'https://mandrillapp.com/api/1.0/messages/send.json',
-      data: {
-        'key': 'htTa0Kv0RPkKQJ8NvozAQQ',
-        'message': {
-          'from_email': 'omurkozdemir@gmail.com',
-          'to': [
-              {
-                'email': email,
-                'name': username,
-                'type': 'to'
-              }
-            ],
-          'autotext': 'true',
-          'subject': 'Reset Your Password',
-          'html': 'Follow Link to reset your password : '
-        }
-      }
-     }).done(function(response) {
-       console.log(response); // if you're into that sorta thing
-     });
-}
+
+
+
+
+
+
+//function recoverPass() {
+  //  $.ajax({
+    //  type: 'POST',
+   //   url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+   //  data: {
+      //  'key': 'htTa0Kv0RPkKQJ8NvozAQQ',
+      //  'message': {
+      //    'from_email': 'omurkozdemir@gmail.com',
+       //   'to': [
+       //       {
+       //         'email': email,
+        //        'name': username,
+        //        'type': 'to'
+         //     }
+         //   ],
+        //  'autotext': 'true',
+         // 'subject': 'Reset Your Password',
+         // 'html': 'Follow Link to reset your password : '
+      //  }
+     // }
+//}).done(function(response) {
+      // console.log(response); // if you're into that sorta thing
+    // });
+//}

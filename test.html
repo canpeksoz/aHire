@@ -1,0 +1,130 @@
+<div id="manage-payments-container-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div id="managepaymentModalHeader"></div>
+            </div>
+            <div class="modal-body">
+                <form id="frmEditContainer4" class="editContainerForm">
+                    <div class="row" style="margin: 0px 0px 0px 10px;">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-8" id="add-new-container-chargewithaccessorialbtn"
+                                    style="margin-right:20px;">
+
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12" id="selectAllDiv"
+                                    style="padding-left:2px; padding-bottom:5px; border-bottom:1px solid #ccc;">
+                                    <label class='checkboxCharge' style='z-index: 9999;'><input type='checkbox'
+                                            onChange='checkAll(this)' name='chargeCheckbox' id='checkAllInput'><span
+                                            class='checkmarkSelectAll'></span></label>
+                                </div>
+                                <div class="col-md-12" id="managePaymentDiv" style="overflow-y: scroll; height: 500px;">
+
+                                </div>
+                            </div>
+                            <div class="row" style="display:none; padding-top:10px;" id="managePaymentGenerateInvoice">
+                                <div class="col-md-6">
+                                    <button type='button' class='btn btn-primary' id='btnGenerateButton'
+                                        onclick="PreviewPaymentsModal('GenerateInvoice')"
+                                        data-invoicepreviewjobid="">Generate Invoice</button>
+                                    <button type='button' class='btn btn-primary' id='btnAddToInvoice'>Add to an
+                                        Invoice</button>
+                                </div>
+                            </div>
+                            <div class="row" style="display: none; padding-top: 10px;" id="divCreditMemo">
+                                <div class="col-md-6">
+                                    <button type='button' class='btn btn-primary' id='btnCreateCreditMemo'
+                                        onclick="initCreditmemoSelectedCreditCartModal()">Create Credit Memo</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin: 0px 0px 5px 15px;">
+                        <div class="form-group mpTotalDiv">
+                            <div class="row">
+                                <div class="col-md-8">
+                                </div>
+                                <div class="col-md-2 text-align-left">
+                                    <label><strong>Total Shipper :</strong></label>
+                                </div>
+                                <div class="col-md-2 text-align-left">
+                                    <label><strong id="managePaymentTotalShipper"></strong></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mpTotalDiv">
+                            <div class="row">
+                                <div class="col-md-8">
+                                </div>
+                                <div class="col-md-2 text-align-left">
+                                    <label><strong>Total Carrier :</strong></label>
+                                </div>
+                                <div class="col-md-2 text-align-left">
+                                    <label><strong id="managePaymentTotalCarrier"></strong></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mpTotalDiv">
+                            <div class="row">
+                                <div class="col-md-8">
+                                </div>
+                                <div class="col-md-2 text-align-left">
+                                    <label><strong>Total Vendor :</strong></label>
+                                </div>
+                                <div class="col-md-2 text-align-left">
+                                    <label><strong id="managePaymentTotalVendor"></strong></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-8">
+                                </div>
+                                <div class="col-md-2 text-align-left">
+                                    <label><strong>Total Commission :</strong></label>
+                                </div>
+                                <div class="col-md-2 text-align-left">
+                                    <label><strong id="managePaymentTotalCommission"></strong></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="managepayment-lineof-credit" style="display:none;">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                    </div>
+                                    <div class="col-md-2 text-align-left">
+                                        <label><strong>Outstanding Amount :</strong></label>
+                                    </div>
+                                    <div class="col-md-2 text-align-left">
+                                        <label><strong id="managepayment-outstanding-amount"></strong></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                    </div>
+                                    <div class="col-md-2 text-align-left">
+                                        <label><strong>Total Credit :</strong></label>
+                                    </div>
+                                    <div class="col-md-2 text-align-left">
+                                        <label><strong id="managepayment-credit-limit"></strong></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
