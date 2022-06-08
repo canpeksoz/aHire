@@ -1,85 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Recent Jobs</title>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/font-awesome.min.css" />
-    <link rel="stylesheet" href="css/font-awesome.css" />
-    <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" />
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/chat.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Recent Jobs</title>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/font-awesome.css" />
+        <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css"
+            type="text/css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/isotope.css"
+            media="screen" />
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/chat.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
 
+    <body>
+        <style>
+        #searchBox {
 
-</head>
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}</style>
+        <header>
+            <div class="main-menu">
+                <div class="container">
+                    <div class="row">
+                        <!-- Now create a Navigation -->
 
-<body>
-    <header>
-        <div class="main-menu">
-            <div class="container">
-                <div class="row">
-                    <!-- Now create a Navigation -->
+                        <nav class="navbar navbar-inverse navbar-fixed-top">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle
+                                        collapsed" data-toggle="collapse"
+                                        data-target="#bs-example-navbar-collapse-1"
+                                        aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand"
+                                        href="freelancerAfterLoginHome.html">
+                                        <span class="glyphicon glyphicon-home">
+                                            aHire </span>
+                                    </a>
+                                </div>
+                                <div class="collapse navbar-collapse"
+                                    id="bs-example-navbar-collapse-1">
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li>
+                                            <a
+                                                href="freelancerAfterLoginHome.html">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="freelancerProfile.html">Profile</a>
+                                        </li>
 
-                    <nav class="navbar navbar-inverse navbar-fixed-top">
-                        <div class="container-fluid">
-                            <!-- Brand and toggle get grouped for better mobile display -->
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <a class="navbar-brand" href="freelancerAfterLoginHome.html">
-                                    <span class="glyphicon glyphicon-home">
-                                        aHire </span>
-                                </a>
+                                        <li>
+                                            <a href="findJob.html">Find A Jobs</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="index.html">Logout</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">
+                                                <span class="glyphicon
+                                                    glyphicon-bell">
+                                                </a>
+                                            </span>
+                                        </li>
+
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li>
-                                        <a href="freelancerAfterLoginHome.html">Home</a>
-                                    </li>
-                                    <li>
-                                        <a href="freelancerProfile.html">Profile</a>
-                                    </li>
 
-                                    <li>
-                                        <a href="findJob.html">Find A Jobs</a>
-                                    </li>
+                        </nav>
 
-                                    <li>
-                                        <a href="index.html">Logout</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="#">
-                                            <span class="glyphicon glyphicon-bell">
-                                        </a>
-                                        </span>
-                                    </li>
-                                    
-                                </ul>
-                            </div>
-                        </div>
-
-                    </nav>
-
-                    <!--End Navigation -->
+                        <!--End Navigation -->
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <br></br>
+        <br></br>
     <!-- column content -->
     <div id="main-content">
         <div class="container">
@@ -88,8 +105,14 @@
                     <h2 style="margin:10px;">Recent
                         <strong>Jobs</strong>
                     </h2>
+
+                    <input type="text" id="searchBox" onkeyup="searchBox()"
+                        placeholder="UI, UX, Web Design...">
+
                     <!-- Start Recent Jobs table -->
-                    <table width="100%" cellspacing="1" class="table table-striped">
+                    <table id="searchTable" width="100%" cellspacing="1"
+                        class="table
+                        table-striped">
                         <thead>
                             <tr>
                                 <th width="55%">Title</th>
@@ -101,53 +124,88 @@
                         <tbody>
                             <!-- row 1 -->
                             <tr>
-                                <th>
-                                    <a href="" target="title" title="Web Design" rel="Web Design">Web Designer</a>
-                                </th>
-                                <th>
-                                    <a href="" id="category" title="Software&Technology"
+                                <td>
+                                    <a href="" target="title" title="Web Design"
+                                        rel="Web Design">Web Designer</a>
+                                </td>
+                                <td>
+                                    <a href="" id="category"
+                                        title="Software&Technology"
                                         rel="Web Design">Software&Technology</a>
-                                </th>
+                                </td>
                                 <td id="day">2</td>
                                 <td id="price">4000</td>
-                                <td><a class="btn btn-info " target="__blank" href="freelancerProofOfWork.html">Add Proof Of Work</a></td>
-                            <!-- <td><a href="freelancerAppliedJob.html" target="apply" title="apply" rel="apply">Apply</a></td>-->
-                                <td><a class="btn" id="applyButton" target="__blank" href="freelancerAppliedJob.html">Apply</a></td>
+                                <th><a class="btn btn-info" target="__blank"
+                                        href="freelancerProofOfWork.html">Add
+                                        Proof Of Work</a></th>
+                                <!-- <td><a href="freelancerAppliedJob.html" target="apply" title="apply" rel="apply">Apply</a></td>-->
+                                <th><a class="btn" id="applyButton"
+                                        target="__blank"
+                                        href="freelancerAppliedJob.html">Apply</a></th>
                                 <!--    <td><input type="submit" value="Payment" class="btn" id="goPayment" onclick="PaymentRequest"></td>-->
-    
                             </tr>
                             <!-- row 2 -->
                             <tr>
-                                <th>
-                                    <a href="" target="title" title="Web Design" rel="Web Design">UI / UX Designer</a>
-                                </th>
-                                <th>
-                                    <a href="" id="category" title="Software&Technology" rel="Web Design">Software&Technology</a>
-                                </th>
+                                <td>
+                                    <a href="" target="title" title="Web Design"
+                                        rel="Web Design">UI / UX </a>
+                                </td>
+                                <td>
+                                    <a href="" id="category"
+                                        title="Software&Technology" rel="Web
+                                        Design">Software&Technology</a>
+                                </td>
                                 <td id="day">8</td>
                                 <td id="price">2000</td>
-                                <td><a class="btn btn-info " target="__blank" href="freelancerProofOfWork.html">Add Proof Of Work</a></td>
+                                <th><a class="btn btn-info" target="__blank"
+                                        href="freelancerProofOfWork.html">Add
+                                        Proof Of Work</a></th>
+                                <th><a class="btn" id="applyButton"
+                                        target="__blank"
+                                        href="freelancerAppliedJob.html">Apply</a></th>
                                 <!-- <td><a href="freelancerAppliedJob.html" target="apply" title="apply" rel="apply">Apply</a></td>-->
-                                
-                            <!-- <td><a class="btn" id="applyButton" target="__blank" href="freelancerAppliedJob.html">Apply</a></td>-->
-
-                                    
-                            
+                                <!-- <td><a class="btn" id="applyButton" target="__blank" href="freelancerAppliedJob.html">Apply</a></td>-->
                             </tr>
-    
-    
+
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
 
+        <script>
+            
+    function searchBox() {
+  // Declare variables
 
-
+  var input, filter, found, table, tr, td, th, i, j;
+    input = document.getElementById("searchBox");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("searchTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++ ) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                found = true;
+            }
+        }
+       
+        if (found) {
+            tr[i].style.display = "";
+            found = false;
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
+</script>
         <!-- end column content -->
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.isotope.min.js"></script>
@@ -159,10 +217,12 @@
 
         <!-- CHAT BAR BLOCK -->
         <div class="chat-bar-collapsible">
-            <button id="chat-button" type="button" class="collapsible">Chat with aHire!
-                <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+            <button id="chat-button" type="button" class="collapsible">Chat with
+                aHire!
+                <i id="chat-icon" style="color: #fff;" class="fa fa-fw
+                    fa-comments-o"></i>
             </button>
-        
+
             <div class="content">
                 <div class="full-chat-block">
                     <!-- Message Container -->
@@ -173,37 +233,43 @@
                                 <h5 id="chat-timestamp"></h5>
                                 <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
                             </div>
-        
+
                             <!-- User input box -->
                             <div class="chat-bar-input-block">
                                 <div id="userInput">
-                                    <input id="textInput" class="input-box" type="text" name="msg"
-                                        placeholder="Tap 'Enter' to send a message">
+                                    <input id="textInput" class="input-box"
+                                        type="text" name="msg"
+                                        placeholder="Tap 'Enter' to send a
+                                        message">
                                     <p></p>
                                 </div>
-        
+
                                 <div class="chat-bar-icons">
-                                    <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart"
+                                    <i id="chat-icon" style="color: crimson;"
+                                        class="fa fa-fw fa-heart"
                                         onclick="heartButton()"></i>
-                                    <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButton()"></i>
+                                    <i id="chat-icon" style="color: #333;"
+                                        class="fa fa-fw fa-send"
+                                        onclick="sendButton()"></i>
                                 </div>
                             </div>
-        
+
                             <div id="chat-bar-bottom">
                                 <p></p>
                             </div>
-        
+
                         </div>
                     </div>
-        
+
                 </div>
             </div>
-        
+
         </div>
 
 
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="js/responses.js"></script>
-<script src="js/chatbot.js"></script>
+    </body>
+    <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/responses.js"></script>
+    <script src="js/chatbot.js"></script>
 </html>
