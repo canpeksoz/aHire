@@ -68,48 +68,19 @@ resetPassword.addEventListener('click', (e) => {
   
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        console.log("SUCCESS")
-        alert("SUCCESS")
-    // Password reset email sent!
-    // ..
+
+        alert("Password reset email sent! Check your inbox or spam box !")
+ 
+
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     alert(errorMessage)
-    // ..
+
   });
 
 
 
 });
 
-
-
-
-
-
-//function recoverPass() {
-  //  $.ajax({
-    //  type: 'POST',
-   //   url: 'https://mandrillapp.com/api/1.0/messages/send.json',
-   //  data: {
-      //  'key': 'htTa0Kv0RPkKQJ8NvozAQQ',
-      //  'message': {
-      //    'from_email': 'omurkozdemir@gmail.com',
-       //   'to': [
-       //       {
-       //         'email': email,
-        //        'name': username,
-        //        'type': 'to'
-         //     }
-         //   ],
-        //  'autotext': 'true',
-         // 'subject': 'Reset Your Password',
-         // 'html': 'Follow Link to reset your password : '
-      //  }
-     // }
-//}).done(function(response) {
-      // console.log(response); // if you're into that sorta thing
-    // });
-//}
