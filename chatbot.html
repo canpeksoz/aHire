@@ -1,72 +1,66 @@
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- include firebase database -->
-<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
-<script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyBExhGEGFVitugDVDoNYW2c4qeDyVQdqJQ",
-        authDomain: "ahire-636cc.firebaseapp.com",
-        databaseURL: "https://ahire-636cc-default-rtdb.firebaseio.com",
-        projectId: "ahire-636cc",
-        storageBucket: "ahire-636cc.appspot.com",
-        messagingSenderId: "454483553062",
-        appId: "1:454483553062:web:ccd511b854b9535adf2fe7"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    var myName = prompt("Enter your name");
-</script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- create a form to send message -->
-<form onsubmit="return sendMessage();">
-    <input id="message" placeholder="Enter message" autocomplete="off">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <input type="submit">
-</form>
-<script>
-    function sendMessage() {
-        // get message
-        var message = document.getElementById("message").value;
+</head>
 
-        // save in database
-        firebase.database().ref("messages").push().set({
-            "sender": myName,
-            "message": message
-        });
+<body>
+    <!-- CHAT BAR BLOCK -->
+    <div class="chat-bar-collapsible">
+        <button id="chat-button" type="button" class="collapsible">Chat with aHire!
+            <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+        </button>
 
-        // prevent form from submitting
-        return false;
-    }
+        <div class="content">
+            <div class="full-chat-block">
+                <!-- Message Container -->
+                <div class="outer-container">
+                    <div class="chat-container">
+                        <!-- Messages -->
+                        <div id="chatbox">
+                            <h5 id="chat-timestamp"></h5>
+                            <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                        </div>
 
-   // listen for incoming messages
-    firebase.database().ref("messages").on("child_added", function (snapshot) {
-        var html = "";
-        // give each message a unique ID
-        html += "<li id='message-" + snapshot.key + "'>";
-        // show delete button if message is sent by me
-        if (snapshot.val().sender == myName) {
-            html += "<button data-id='" + snapshot.key + "' onclick='deleteMessage(this);'>";
-            html += "Delete";
-            html += "</button>";
-        }
-        html += snapshot.val().sender + ": " + snapshot.val().message;
-        html += "</li>";
+                        <!-- User input box -->
+                        <div class="chat-bar-input-block">
+                            <div id="userInput">
+                                <input id="textInput" class="input-box" type="text" name="msg"
+                                    placeholder="Tap 'Enter' to send a message">
+                                <p></p>
+                            </div>
 
-        document.getElementById("messages").innerHTML += html;
-    });
-    function deleteMessage(self) {
-            // get message ID
-            var messageId = self.getAttribute("data-id");
+                            <div class="chat-bar-icons">
+                                <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart"
+                                    onclick="heartButton()"></i>
+                                <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+                                    onclick="sendButton()"></i>
+                            </div>
+                        </div>
 
-            // delete message
-            firebase.database().ref("messages").child(messageId).remove();
-        }
+                        <div id="chat-bar-bottom">
+                            <p></p>
+                        </div>
 
-        // attach listener for delete message
-        firebase.database().ref("messages").on("child_removed", function (snapshot) {
-            // remove message node
-            document.getElementById("message-" + snapshot.key).innerHTML = "This message has been removed";
-        });
-</script>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/responses.js"></script>
+<script src="js/chatbot.js"></script>
+
+</html>
