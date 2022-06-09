@@ -36,17 +36,47 @@ var password=document.getElementById('password').value;
 signInWithEmailAndPassword(auth, email, password)
 .then((userCredential) => {
 // Signed in 
-const user = userCredential.user;
-const dt = new Date();
+let user = userCredential.user;
+let dt = new Date();
 
 
 update(ref(database,'users/'+user.uid),{
 
-    last_login: dt,
+  last_login: dt,
+
    
 })
 alert('Login Successfull !')
   //window.location.href = "/Login.html"
+
+        if(user){
+        
+
+
+            user = auth.currentUser;
+          if (user !== null) {
+
+              
+            user.providerData((profile) => {
+
+              
+            console.log("Sign-in provider: " + profile.providerId);
+            console.log("  Provider-specific UID: " + profile.uid);
+            console.log("  user type: " + profile.ref);
+            console.log("  Email: " + profile.email);
+
+  });
+            
+            
+            
+            }
+
+
+        }
+// kullanıcı giriş yapmamış olduğundan içeri giremez
+           else{
+            window.location.href = "login.html";
+        }
 
 
 // ...
