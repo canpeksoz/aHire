@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Applied Job</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css"
+        type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/isotope.css"
+        media="screen" />
+
+    <link rel="stylesheet" href="css/chatFroum.css">
+    <link rel="icon" href="img/favicon-ad.png" />
+</head>
+
+<body>
+    <header>
+        <div class="main-menu">
+            <div class="container">
+                <div class="row">
+                    <!-- Now create a Navigation -->
+
+                    <nav class="navbar navbar-inverse navbar-fixed-top">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle
+                                    collapsed" data-toggle="collapse"
+                                    data-target="#bs-example-navbar-collapse-1"
+                                    aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand"
+                                    href="freelancerAfterLoginHome.html">
+                                    <span class="glyphicon glyphicon-home">
+                                        aHire </span>
+                                </a>
+                            </div>
+                            <div class="collapse navbar-collapse"
+                                id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li>
+                                        <a
+                                            href="freelancerAfterLoginHome.html">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="freelancerProfile.html">Profile</a>
+                                    </li>
+
+                                    <li>
+                                        <a
+                                            href="freelancerAfterLoginHome.html">Find
+                                            A Jobs</a>
+                                    </li>
+
+                                    <li>
+                                        <div class="form-item">
+                                            <input type="submit" id="logout"
+                                                name="logout" value="logout"
+                                                class="btn btn-primary
+                                                pull-right push-bottom"
+                                                data-loading-text="Loading...">
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            <span class="glyphicon
+                                                glyphicon-bell">
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </nav>
+
+                    <!--End Navigation -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <br></br>
+<!-- column content -->
+<div id="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 style="margin:10px;">Applied
+                    <strong>Jobs</strong>
+                </h2>
+                <!-- Start Recent Jobs table -->
+                <table width="100%" cellspacing="1" class="table
+                    table-striped">
+                    <thead>
+                        <tr>
+                            <th width="55%">Title</th>
+                            <th>Category</th>
+                            <th>Deadline (Day)</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- row 1 -->
+                        <tr>
+                            <th>
+                                <a href="jobDetails.html" target="title"
+                                    title="Web Design"
+                                    rel="Web Design">Web Designer</a>
+                            </th>
+                            <th>
+                                <div id="category"
+                                    title="Software&Technology"
+                                    rel="Software&Technology">Software&Technology</div>
+                            </th>
+                            <td id="day">2</td>
+                            <td id="price">4000₺</td>
+
+                            <!--    <td><input type="submit" value="Payment" class="btn" id="goPayment" onclick="PaymentRequest"></td>-->
+                        </tr>
+                        <!-- row 2 -->
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div id="notif">Comment submitted!</div>
+
+        <br><br><hr><br>
+
+        <div class="comments">
+            <div>
+                <h2><span id="comments-count"></span> Comments</h2>
+                <ul id="comments-list"></ul>
+            </div>
+            <div>
+                <span id="comment-container"></span>
+
+                <form id="comment" style="display:block;">
+                    <h3 id="comment-form-title">Leave a comment</h3>
+                    <textarea id="message" type="text" placeholder="Comment..."
+                        required></textarea>
+                    <input id="name" type="text" placeholder="Name" required>
+                    <input id="email" type="email" placeholder="Email" required>
+                    <button class="btn" type="submit" name="action"
+                        onclick=replaceTextOnPage()>Post Comment</button>
+                </form>
+
+
+                <form id="reply" style="display:none;">
+                    <h3>Reply</h3>
+                    <div id="cancel-reply"><a href="#!"
+                            class="cancel-reply-link">Cancel Reply</a></div>
+                    <textarea id="message" type="text" placeholder="Comment..."
+                        required></textarea>
+                    <input id="name" type="text" placeholder="Name" required>
+                    <input id="email" type="email" placeholder="Email" required>
+                    <button class="btn" type="submit" name="action">Post Comment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+        <hr>
+        <small>&copy; 2022 <a href="https://github.com/canpeksoz/aHire"
+                target="_blank"
+                rel="noopener">aHire</a></small>
+
+        <!-- Dependencies -->
+        <script src="js/md5.js"></script>
+        <script src="js/timeago.js"></script>
+        <script src="js/xss-filters.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script>
+         // Initialize Firebase
+
+         var config = {
+
+          apiKey: "AIzaSyBExhGEGFVitugDVDoNYW2c4qeDyVQdqJQ",
+    authDomain: "ahire-636cc.firebaseapp.com",
+    databaseURL: "https://ahire-636cc-default-rtdb.firebaseio.com",
+    projectId: "ahire-636cc",
+    storageBucket: "ahire-636cc.appspot.com",
+    messagingSenderId: "454483553062",
+    appId: "1:454483553062:web:ccd511b854b9535adf2fe7",
+    measurementId: "G-CM18EJXDBR"
+    };
+    firebase.initializeApp(config);
+    </script>
+        <!-- Fire Comments JS -->
+        <script src="js/fire-comments.js"></script>
+
+
+
+
+
+
+
+
+
+
+        <!-- end column content -->
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.isotope.min.js"></script>
+        <script src="js/fancybox/jquery.fancybox.pack.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/functions.js"></script>
+        <script type="text/javascript">new WOW().init();</script>
+        <script type="module" src="/js/firebase.js"></script>
+
+    </body>
+
+</html>
