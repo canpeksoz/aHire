@@ -48,8 +48,8 @@ update(ref(database,'users/'+user.uid+'/profile'),{
   last_login: dt,
  
 })
-alert('Registration Successfully !')
-  
+  alert('Registration Successfully !')
+      
 
   console.log(user.uid);
 // ...
@@ -57,12 +57,21 @@ alert('Registration Successfully !')
 })
 .catch((error) => {
 const errorCode = error.code;
-const errorMessage = error.message;
+  const errorMessage = error.message;
+    console.log(errorMessage)
 
-alert(errorMessage)
-});
-
-
+ // alert(errorMessage)
 
 });
+      console.log(typeSelect)
+   if (typeSelect == 'Freelancer') {
+            window.location.href = "freelancerAfterLoginHome.html";
+        } else {
+          window.location.href = "employerAfterLoginHome.html";
+        }
+
+
+
+});
+
 

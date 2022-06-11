@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
 //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
-import { getDatabase, set, ref, update, onValue } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
+import { getDatabase, set, ref, update, onValue, get,child } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
 
 
@@ -30,24 +30,46 @@ var password=document.getElementById('password').value;
 
 
 //user create
-signInWithEmailAndPassword(auth, email, password)
-.then((userCredential) => {
-// Signed in 
-let user = userCredential.user;
-let dt = new Date();
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      let user = userCredential.user;
+      let dt = new Date();
 
 
-update(ref(database,'users/'+user.uid+'/profile'),{
+      update(ref(database, 'users/' + user.uid + '/profile'), {
 
-    last_login: dt,
+        last_login: dt,
    
-})
-alert("user logged in");
-  window.location.href = "/addPost.html"
+      })
+      alert("user logged in");
+  
+      user = auth.currentUser;
+
+      const dbRef = ref(getDatabase());
+      get(child(dbRef, `users/` + user.uid + '/profile')).then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val().type);
+          if (snapshot.val().type == 'Freelancer') {
+            window.location.href = "freelancerAfterLoginHome.html";
+          } else {
+            window.location.href = "employerAfterLoginHome.html";
+          }
 
 
 
-})
+        } else {
+          console.log("No data available");
+        }
+    
+      }).catch((error) => {
+        console.error(error);
+      });
+
+
+
+
+    })
 .catch((error) => {
 const errorCode = error.code;
 const errorMessage = error.message;
