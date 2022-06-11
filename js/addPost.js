@@ -70,7 +70,7 @@ console.log(user.uid)
        let description = document.getElementById('description').value;    
        let price = document.getElementById('price').value;   
        let date = document.getElementById('date').value;   
-       let test = "DENEME123"
+ 
 
        set(ref(database, 'users/'+user.uid+'/jobs'+'/3'), {
            category:category,
@@ -78,7 +78,7 @@ console.log(user.uid)
            description:description,
            price:price,
            date:date,
-           test:test
+         
          });
        
      
