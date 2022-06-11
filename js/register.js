@@ -1,10 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
-//import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
-import { getDatabase, set, ref,  } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
- 
-
-
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
+import { getDatabase, set, ref,update, onValue  } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
 
 
 const firebaseConfig = {
@@ -20,10 +17,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
+const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const database = getDatabase(app);
-
+const user = auth.currentUser;
 
 submitdata.addEventListener('click',(e)=>{
 
@@ -38,21 +35,26 @@ createUserWithEmailAndPassword(auth, email, password)
 .then((userCredential) => {
 // Signed in 
 const user = userCredential.user;
-set(ref(database,'users/'+user.uid),{
+let dt = new Date();
+set(ref(database,'users/'+user.uid+'/profile'),{
 
     username: username,
     mail: email,
-    type: typeSelect
+    type: typeSelect,
+    
+})
+update(ref(database,'users/'+user.uid+'/profile'),{
 
+  last_login: dt,
+ 
 })
 alert('Registration Successfully !')
-//window.location.href = "/Login.html" 
-
-
-// ...
-})
   
 
+  console.log(user.uid);
+// ...
+
+})
 .catch((error) => {
 const errorCode = error.code;
 const errorMessage = error.message;
@@ -62,5 +64,5 @@ alert(errorMessage)
 
 
 
-
 });
+

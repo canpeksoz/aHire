@@ -1,7 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
-//import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
-import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
+import { getDatabase, set, ref, update, onValue } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBExhGEGFVitugDVDoNYW2c4qeDyVQdqJQ",
@@ -16,13 +17,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
+const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const database = getDatabase(app);
-
-
-
-
 
 
 login.addEventListener('click',(e)=>{
@@ -40,46 +37,16 @@ let user = userCredential.user;
 let dt = new Date();
 
 
-update(ref(database,'users/'+user.uid),{
+update(ref(database,'users/'+user.uid+'/profile'),{
 
-  last_login: dt,
-
+    last_login: dt,
    
 })
-alert('Login Successfull !')
-  //window.location.href = "/Login.html"
-
-        if(user){
-        
+alert("user logged in");
+  window.location.href = "/addPost.html"
 
 
-            user = auth.currentUser;
-          if (user !== null) {
 
-              
-            user.providerData((profile) => {
-
-              
-            console.log("Sign-in provider: " + profile.providerId);
-            console.log("  Provider-specific UID: " + profile.uid);
-            console.log("  user type: " + profile.ref);
-            console.log("  Email: " + profile.email);
-
-  });
-            
-            
-            
-            }
-
-
-        }
-// kullanıcı giriş yapmamış olduğundan içeri giremez
-           else{
-            window.location.href = "login.html";
-        }
-
-
-// ...
 })
 .catch((error) => {
 const errorCode = error.code;
@@ -90,27 +57,9 @@ alert(errorMessage)
 
 
 
-});
-
-resetPassword.addEventListener('click', (e) => {
-
-  var email = document.getElementById('recoverPass').value;
-  
-    sendPasswordResetEmail(auth, email)
-      .then(() => {
-
-        alert("Password reset email sent! Check your inbox or spam box !")
- 
-
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage)
-
-  });
-
 
 
 });
+
+
 
