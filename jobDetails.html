@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -116,80 +117,77 @@
                             <th>Price</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <!-- row 1 -->
-                        <tr>
+                    <tbody id="jobsDetails">
 
-                            <th>
-                                <div id="title">Web Designer</div>
-                            </th>
+                            <!-- row 1 -->
+                            <tr>
+                                <td>
+                                    <a href="jobDetails.html" target="title"
+                                        title="title"
+                                        id="title">UI / UX Designer</a>
+                                </td>
+                                <th>
+                                    <div id="category">Software &
+                                        Technology</div>
+                                </th>
+
+                                <td id="day">8</td>
+                                <td id="price">2000</td>
 
 
-                            <th>
-                                <div id="category">Software &
-                                    Technology</div>
-                            </th>
-
-                            <td id="day">2</td>
-                            <td id="price">4000</td>
-                            <td>
-
-                                <!--    <td><input type="submit" value="Payment" class="btn" id="goPayment" onclick="PaymentRequest"></td>-->
                             </tr>
-                            <!-- row 2 -->
+
+                             <th><a class="btn" id="applyButton"
+                                        target="__blank"
+                                        href="freelancerAppliedJob.html">Apply</a></th>
+
+
 
 
                         </tbody>
-                    </table>
-                </div>
+                </table>
             </div>
         </div>
+    </div>
 
-        <div>
-            <div id="notif">Comment submitted!</div>
+    <div>
+        <div id="notif">Comment submitted!</div>
 
-            <br><br><hr><br>
+        <br><br><hr><br>
 
-            <div class="comments">
-                <div>
-                    <h2><span id="comments-count"></span> Comments</h2>
-                    <ul id="comments-list"></ul>
-                </div>
-                <div>
-                    <span id="comment-container"></span>
+        <div class="comments">
+            <div>
+                <h2><span id="comments-count"></span> Comments</h2>
+                <ul id="comments-list"></ul>
+            </div>
+            <div>
+                <span id="comment-container"></span>
 
-                    <form id="comment" style="display:block;">
-                        <h3 id="comment-form-title">Leave a comment</h3>
-                        <textarea id="message" type="text"
-                            placeholder="Comment..."
-                            required></textarea>
-                        <input id="name" type="text" placeholder="Name"
-                            required>
-                        <input id="email" type="email" placeholder="Email"
-                            required>
-                        <button class="btn" type="submit" name="action"
-                            onclick=replaceTextOnPage()>Post Comment</button>
-                    </form>
+                <form id="comment" style="display:block;">
+                    <h3 id="comment-form-title">Leave a comment</h3>
+                    <textarea id="message" type="text" placeholder="Comment..."
+                        required></textarea>
+                    <input id="name" type="text" placeholder="Name" hidden value="">
+                    <input id="email" type="email" placeholder="Email" hidden value="">
+                    <button class="btn" type="submit" name="action"
+                        onclick=replaceTextOnPage()>Post Comment</button>
+                </form>
 
 
-                    <form id="reply" style="display:none;">
-                        <h3>Reply</h3>
-                        <div id="cancel-reply"><a href="#!"
-                                class="cancel-reply-link">Cancel Reply</a></div>
-                        <textarea id="message" type="text"
-                            placeholder="Comment..."
-                            required></textarea>
-                        <input id="name" type="text" placeholder="Name"
-                            required>
-                        <input id="email" type="email" placeholder="Email"
-                            required>
-                        <button class="btn" type="submit" name="action">Post
-                            Comment</button>
-                    </form>
-                </div>
+                <form id="reply" style="display:none;">
+                    <h3>Reply</h3>
+                    <div id="cancel-reply"><a href="#!"
+                            class="cancel-reply-link">Cancel Reply</a></div>
+                    <textarea id="message" type="text" placeholder="Comment..."
+                        required></textarea>
+                    <input id="name" type="text" placeholder="Name" hidden value="">
+                    <input id="email" type="email" placeholder="Email" hidden value="">
+                    <button class="btn" type="submit" name="action">Post Comment</button>
+                </form>
             </div>
         </div>
-        <br>
+    </div>
+    <br>
         <hr>
         <small>&copy; 2022 <a href="https://github.com/canpeksoz/aHire"
                 target="_blank"
@@ -217,7 +215,7 @@
     firebase.initializeApp(config);
     </script>
         <!-- Fire Comments JS -->
-        <script src="js/fire-comments.js"></script>
+        <script type="module" src="js/fire-comments.js"></script>
 
 
 
@@ -242,6 +240,7 @@
         <script type="text/javascript">new WOW().init();</script>
         <script type="module" src="/js/firebase.js"></script>
         <script type="module" src="js/authControl.js"></script>
+        <script type="module" src="js/jobDetails.js"></script>
 
     </body>
 

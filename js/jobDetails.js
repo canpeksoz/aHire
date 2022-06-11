@@ -39,7 +39,7 @@ while(tmp<count){
     const data = snapshot.val();
     var row = "<tr> <td>" + "<a href='jobDetails.html'>" +  snapshot.val().title + "</a>" + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td>  </tr>" 
          
-      $(row).appendTo('#jobs');
+      $(row).appendTo('#jobsDetails');
 
     
  
