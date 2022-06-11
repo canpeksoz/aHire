@@ -265,31 +265,9 @@
                             <option value="yes">YES</option>
                             <option value="no">NO</option>
                         </select>
-                        <script class="jsbin"
-                            src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                        <div class="file-upload">
-                            <button class="file-upload-btn" type="button"
-                                onclick="$('.file-upload-input').trigger(
-                                'click' )">Add File</button>
-
-                            <div class="file-upload-wrap">
-                                <input class="file-upload-input" type='file'
-                                    onchange="readURL(this);" accept="file/*" />
-                                <div class="drag-text">
-                                    <h3>Drag and drop a file or select add File</h3>
-                                </div>
-                            </div>
-                            <div class="file-upload-content">
-                                <img class="file-upload-file" src="#" alt="your
-                                    file" />
-                                <div class="file-title-wrap">
-                                    <button type="button"
-                                        onclick="removeUpload()"
-                                        class="remove-file">Remove <span
-                                            class="file-title">Uploaded File</span></button>
-                                </div>
-                            </div>
-                        </div>
+                        
+                                
+                           
 
                         <input type="submit" value="Submit">
                     </form>
@@ -316,39 +294,7 @@
         <script src="js/functions.js"></script>
         <script type="module" src="js/firebase.js"></script>
         <script type="module" src="js/authControl.js"></script>
-        <script>function readURL(input) {
-                    if (input.files && input.files[0]) {
-
-                        var reader = new FileReader();
-
-                        reader.onload = function (e) {
-                            $('.file-upload-wrap').hide();
-
-                            $('.file-upload-file').attr('src', e.target.result);
-                            $('.file-upload-content').show();
-
-                            $('.file-title').html(input.files[0].name);
-                        };
-
-                        reader.readAsDataURL(input.files[0]);
-
-                    } else {
-                        removeUpload();
-                    }
-                }
-
-                function removeUpload() {
-                    $('.file-upload-input').replaceWith($('.file-upload-input').clone());
-                    $('.file-upload-content').hide();
-                    $('.file-upload-wrap').show();
-                }
-                $('.file-upload-wrap').bind('dragover', function () {
-                    $('.file-upload-wrap').addClass('file-dropping');
-                });
-                $('.file-upload-wrap').bind('dragleave', function () {
-                    $('.file-upload-wrap').removeClass('file-dropping');
-                });
-            </script>
+        
     </body>
 
 </html>
