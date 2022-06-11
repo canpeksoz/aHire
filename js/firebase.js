@@ -29,7 +29,8 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
     signOut(auth).then(()=>{
     
     //signout successfull
-    alert('user logged out'); 
+      alert('user logged out'); 
+      window.location.href = "/index.html"  
     
     }).catch((error)=>{
     //an error occured
