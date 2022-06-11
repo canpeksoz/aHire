@@ -60,15 +60,15 @@ const errorCode = error.code;
   const errorMessage = error.message;
     console.log(errorMessage)
 
- // alert(errorMessage)
+  alert(errorMessage)
 
 });
-      console.log(typeSelect)
-   if (typeSelect == 'Freelancer') {
-            window.location.href = "freelancerAfterLoginHome.html";
-        } else {
-          window.location.href = "employerAfterLoginHome.html";
-        }
+     // console.log(typeSelect)
+   //if (typeSelect == 'Freelancer') {
+         //   window.location.href = "freelancerAfterLoginHome.html";
+         // } else {
+         //   window.location.href = "employerAfterLoginHome.html";
+         // }
 
 
 

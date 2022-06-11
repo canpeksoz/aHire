@@ -105,6 +105,8 @@
     <div id="main-content">
         <div class="container">
             <div class="row">
+                <input type="text" id="searchBox" onkeyup="searchBox()"
+                    placeholder="UI, UX, Web Design...">
 
 
                 <div class="col-md-12">
@@ -113,8 +115,7 @@
                         <strong>Jobs</strong>
                     </h2>
 
-                    <input type="text" id="searchBox" onkeyup="searchBox()"
-                        placeholder="UI, UX, Web Design...">
+
 
                     <!-- Start Recent Jobs table -->
                     <table id="searchTable" width="100%" cellspacing="1"
@@ -122,13 +123,17 @@
                         table-striped">
                         <thead>
                             <tr>
-                                <th onclick="sort_table(jobs, 1, asc2); asc2 *=
+                                <th scope="col" onclick="sort_table(jobs, 1,
+                                    asc2); asc2 *=
                                     -1; asc3= 1; asc1= 1;">Title</th>
-                                <th onclick="sort_table(jobs, 1, asc2); asc2 *=
+                                <th scope="col" onclick="sort_table(jobs, 1,
+                                    asc2); asc2 *=
                                     -1; asc3= 1; asc1= 1;">Category</th>
-                                <th onclick="sort_table(jobs, 2, asc3); asc3 *=
-                                    -1; asc1= 1; asc2= 1;">Deadline (Day)</th>
-                                <th onclick="sort_table(jobs, 2, asc3); asc3 *=
+                                <th scope="col" onclick="sort_table(jobs, 2,
+                                    asc3); asc3 *=
+                                    -1; asc1= 1; asc2= 1;">Deadline</th>
+                                <th scope="col" onclick="sort_table(jobs, 2,
+                                    asc3); asc3 *=
                                     -1; asc1= 1; asc2= 1;">Price</th>
                             </tr>
                         </thead>
@@ -137,70 +142,24 @@
                             <!-- row 1 -->
                             <tr>
                                 <td>
-                                    <a href="" target="title" title="Web Design"
-                                        rel="Web Design">UI / UX </a>
+                                    <a href="jobDetails.html" target="title"
+                                        title="title"
+                                        id="title">UI / UX Designer</a>
                                 </td>
-                                <td>
-                                    <a href="" id="category"
-                                        title="Software&Technology" rel="Web
-                                        Design">Software & Technology</a>
-                                </td>
+                                <th>
+                                    <div id="category">Software &
+                                        Technology</div>
+                                </th>
+
                                 <td id="day">8</td>
                                 <td id="price">2000</td>
-                                <th><a class="btn btn-info" target="__blank"
-                                        href="freelancerProofOfWork.html">Add
-                                        Proof Of Work</a></th>
-                                <th><a class="btn" id="applyButton"
+
+                                <th><a class="btn btn-info" id="applyButton"
                                         target="__blank"
                                         href="freelancerAppliedJob.html">Apply</a></th>
-                                <!-- <td><a href="freelancerAppliedJob.html" target="apply" title="apply" rel="apply">Apply</a></td>-->
-                                <!-- <td><a class="btn" id="applyButton" target="__blank" href="freelancerAppliedJob.html">Apply</a></td>-->
                             </tr>
-                            <!-- row 2 -->
-                            <tr>
-                                <td>
-                                    <a href="" target="title" title="Web Design"
-                                        rel="Blockchain Engineer">Blockchain
-                                        Engineer</a>
-                                </td>
-                                <td>
-                                    <a href="" id="category"
-                                        title="Software&Technology" rel="Web
-                                        Design">Software & Technology</a>
-                                </td>
-                                <td id="day">90</td>
-                                <td id="price">15000</td>
-                                <th><a class="btn btn-info" target="__blank"
-                                        href="freelancerProofOfWork.html">Add
-                                        Proof Of Work</a></th>
-                                <th><a class="btn" id="applyButton"
-                                        target="__blank"
-                                        href="freelancerAppliedJob.html">Apply</a></th>
-                                <!-- <td><a href="freelancerAppliedJob.html" target="apply" title="apply" rel="apply">Apply</a></td>-->
-                                <!-- <td><a class="btn" id="applyButton" target="__blank" href="freelancerAppliedJob.html">Apply</a></td>-->
-                            </tr>
-                            <!-- row 1 -->
-                            <tr>
-                                <td>
-                                    <a href="" target="title" title="Painting"
-                                        rel="Painting">Painting</a>
-                                </td>
-                                <td>
-                                    <a href="" id="category"
-                                        title="Repair"
-                                        rel="Repair">Repair</a>
-                                </td>
-                                <td id="day">2</td>
-                                <td id="price">4000</td>
-                                <th><a class="btn btn-info" target="__blank"
-                                        href="freelancerProofOfWork.html">Add
-                                        Proof Of Work</a></th>
-                                <!-- <td><a href="freelancerAppliedJob.html" target="apply" title="apply" rel="apply">Apply</a></td>-->
-                                <th><a class="btn" id="applyButton"
-                                        target="__blank"
-                                        href="freelancerAppliedJob.html">Apply</a></th>
-                                <!--    <td><input type="submit" value="Payment" class="btn" id="goPayment" onclick="PaymentRequest"></td>-->
-                            </tr>
+
+
 
 
                         </tbody>
@@ -341,4 +300,6 @@
     <script src="js/chatbot.js"></script>
     <script type="module" src="js/firebase.js"></script>
     <script type="module" src="js/authControl.js"></script>
+    <script type="module" src="js/getJobs.js"></script>
+
 </html>

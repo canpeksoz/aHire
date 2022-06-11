@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
 //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
-import { getDatabase, set, ref, update, onValue } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
+import { getDatabase, set, ref, update, onValue,get, child } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
 
 
@@ -18,19 +18,10 @@ const firebaseConfig = {
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
- // const analytics = getAnalytics(app);
+  //const analytics = getAnalytics(app);
   const auth = getAuth(app);
   const database = getDatabase(app);
-
-
-  
-
-//uuid
-function uuidv4() {
-  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-  );
-}
+  const dbRef = ref(getDatabase());
 
 
 
@@ -57,36 +48,68 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   
-
+    let count;
     onAuthStateChanged(auth,(user)=>{
     
       if(user){
       user = auth.currentUser;
 console.log(user.uid)
-      create.addEventListener('click',function writeUserData(username){
+
+
+//gets JobCount
+get(child(dbRef, '/')).then((snapshot) => {
+  count= Number(snapshot.val().JobCount);
+   console.log(count);
+  
+  if (snapshot.exists()) {
+    //gets users mail address
+    get(child(dbRef, `users/`+user.uid+'/profile')).then((snapshot) => {
+      
+      if (snapshot.exists()) {
+        
+       let mail=snapshot.val().mail;
+       console.log(mail);
+
     
-       let category = document.getElementById('category').value;
-       let title = document.getElementById('title').value;    
-       let description = document.getElementById('description').value;    
-       let price = document.getElementById('price').value;   
-       let date = document.getElementById('date').value;   
- 
-
-       set(ref(database, 'users/'+user.uid+'/jobs'+'/3'), {
-           category:category,
-           title: title,
-           description:description,
-           price:price,
-           date:date,
+        create.addEventListener('click',function writeUserData(username){
          
-         });
-       
-     
-       
-   });
+          let category = document.getElementById('category').value;
+          let title = document.getElementById('title').value;    
+          let description = document.getElementById('description').value;    
+          let price = document.getElementById('price').value;   
+          let date = document.getElementById('date').value;   
+         
+    
+          set(ref(database,'Jobs/'+ count ), {
+              category:category,
+              title: title,
+              description:description,
+              price:price,
+              date:date,
+              count:count,
+              isActive:true,
+              mail:mail
+            });
+          count++;
+            update(ref(database,'/'),{
+              
+              JobCount: count,
+             
+          })
+        console.log(count);
+          
+      });
 
+    }}).catch((error) => {
+      console.error(error);
+    });
 
-
+  } else {
+    console.log("No jobcount data available");
+  }
+}).catch((error) => {
+  console.error(error);
+});
 
 
    }
@@ -106,7 +129,4 @@ console.log(user.uid)
     
 
 
-    // create post 
-
-  
-    
+    // create post

@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
 //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
-import { getDatabase, set, ref, update, onValue } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
+import { getDatabase, set, ref, update, onValue, get,child } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
 
 
@@ -21,44 +21,83 @@ const firebaseConfig = {
   //const analytics = getAnalytics(app);
   const auth = getAuth(app);
   const database = getDatabase(app);
+  const dbRef = ref(getDatabase());
+var tmp=1;
 
-  // read data from firebase realtime database
+
+
+
+  
+function GetAll(tmp, count){
+ 
+while(tmp<count){
+  const Jobs = ref(database, 'Jobs/'+tmp);
+
+  onValue(Jobs, (snapshot) => {
+
+  
+    const data = snapshot.val();
+    var row = "<tr> <td>" + snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td>  </tr>" 
+         
+      $(row).appendTo('#jobs');
+
+    
+ 
+  });
+
+  tmp++;
+ 
   
 
 
+}
 
-
-
-
-
+  
+ }
+  tmp==0;
+  
+  const ar=[];
+  //array.forEach(e => {
+      
+ // });
+  // get jobs data from firebase
+  let count;
   onAuthStateChanged(auth,(user)=>{
-    
-    if(user){
-    user = auth.currentUser;
-console.log(user.uid)
-   
-const profile = ref(database, 'users/','/profile');
-
-  onValue(profile, (snapshot) => {
-    const data = snapshot.val();
-    for(let i in data){
-        
-        console.log(data[i]);
+      
+  if(user){
+  user = auth.currentUser;
+  get(child(dbRef, '/')).then((snapshot) => {
+  
+    if (snapshot.exists()) {
+      count= Number(snapshot.val().JobCount);
+      
+      
+  GetAll(tmp,count);
+  
+  
+  
+    } else {
+      console.log("No jobcount data available");
     }
+  }).catch((error) => {
+    console.error(error);
   });
 
- }
+
+
+   
+}
 
 // kullanıcı giriş yapmamış olduğundan içeri giremez
-    else{
-     var path = window.location.pathname;
-     var page = path.split("/").pop();
-    
-     if(page!=="login.html" && page!=="register.html"){
-       window.location.href = "login.html"; 
-     }
-    
-    
- }
+  else{
+   var path = window.location.pathname;
+   var page = path.split("/").pop();
+  
+   if(page!=="login.html" && page!=="register.html"){
+     window.location.href = "login.html"; 
+   }
+  
+  
+}
 
- })
+})

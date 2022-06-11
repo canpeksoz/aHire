@@ -119,68 +119,77 @@
                     <tbody>
                         <!-- row 1 -->
                         <tr>
+
                             <th>
-                                <a href="jobDetails.html" target="title"
-                                    title="Web Design"
-                                    rel="Web Design">Web Designer</a>
+                                <div id="title">Web Designer</div>
                             </th>
+
+
                             <th>
-                                <div id="category"
-                                    title="Software&Technology"
-                                    rel="Software&Technology">Software&Technology</div>
+                                <div id="category">Software &
+                                    Technology</div>
                             </th>
+
                             <td id="day">2</td>
-                            <td id="price">4000₺</td>
+                            <td id="price">4000</td>
+                            <td>
 
-                            <!--    <td><input type="submit" value="Payment" class="btn" id="goPayment" onclick="PaymentRequest"></td>-->
-                        </tr>
-                        <!-- row 2 -->
+                                <!--    <td><input type="submit" value="Payment" class="btn" id="goPayment" onclick="PaymentRequest"></td>-->
+                            </tr>
+                            <!-- row 2 -->
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div>
-        <div id="notif">Comment submitted!</div>
+        <div>
+            <div id="notif">Comment submitted!</div>
 
-        <br><br><hr><br>
+            <br><br><hr><br>
 
-        <div class="comments">
-            <div>
-                <h2><span id="comments-count"></span> Comments</h2>
-                <ul id="comments-list"></ul>
-            </div>
-            <div>
-                <span id="comment-container"></span>
+            <div class="comments">
+                <div>
+                    <h2><span id="comments-count"></span> Comments</h2>
+                    <ul id="comments-list"></ul>
+                </div>
+                <div>
+                    <span id="comment-container"></span>
 
-                <form id="comment" style="display:block;">
-                    <h3 id="comment-form-title">Leave a comment</h3>
-                    <textarea id="message" type="text" placeholder="Comment..."
-                        required></textarea>
-                    <input id="name" type="text" placeholder="Name" required>
-                    <input id="email" type="email" placeholder="Email" required>
-                    <button class="btn" type="submit" name="action"
-                        onclick=replaceTextOnPage()>Post Comment</button>
-                </form>
+                    <form id="comment" style="display:block;">
+                        <h3 id="comment-form-title">Leave a comment</h3>
+                        <textarea id="message" type="text"
+                            placeholder="Comment..."
+                            required></textarea>
+                        <input id="name" type="text" placeholder="Name"
+                            required>
+                        <input id="email" type="email" placeholder="Email"
+                            required>
+                        <button class="btn" type="submit" name="action"
+                            onclick=replaceTextOnPage()>Post Comment</button>
+                    </form>
 
 
-                <form id="reply" style="display:none;">
-                    <h3>Reply</h3>
-                    <div id="cancel-reply"><a href="#!"
-                            class="cancel-reply-link">Cancel Reply</a></div>
-                    <textarea id="message" type="text" placeholder="Comment..."
-                        required></textarea>
-                    <input id="name" type="text" placeholder="Name" required>
-                    <input id="email" type="email" placeholder="Email" required>
-                    <button class="btn" type="submit" name="action">Post Comment</button>
-                </form>
+                    <form id="reply" style="display:none;">
+                        <h3>Reply</h3>
+                        <div id="cancel-reply"><a href="#!"
+                                class="cancel-reply-link">Cancel Reply</a></div>
+                        <textarea id="message" type="text"
+                            placeholder="Comment..."
+                            required></textarea>
+                        <input id="name" type="text" placeholder="Name"
+                            required>
+                        <input id="email" type="email" placeholder="Email"
+                            required>
+                        <button class="btn" type="submit" name="action">Post
+                            Comment</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <br>
+        <br>
         <hr>
         <small>&copy; 2022 <a href="https://github.com/canpeksoz/aHire"
                 target="_blank"
