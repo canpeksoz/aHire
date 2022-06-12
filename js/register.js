@@ -53,7 +53,7 @@ update(ref(database,'users/'+user.uid+'/profile'),{
 
   console.log(user.uid);
 // ...
-
+                  window.location.href = "Login.html"; 
 })
 .catch((error) => {
 const errorCode = error.code;

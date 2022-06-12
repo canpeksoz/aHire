@@ -22,8 +22,7 @@ const firebaseConfig = {
   const auth = getAuth(app);
   const database = getDatabase(app);
   const dbRef = ref(getDatabase());
-var tmp=1;
-
+  var tmp=1;
 
 
 
@@ -31,30 +30,47 @@ var tmp=1;
 function GetAll(tmp, count){
  
 while(tmp<count){
+  
   const Jobs = ref(database, 'Jobs/'+tmp);
 
   onValue(Jobs, (snapshot) => {
 
   
     const data = snapshot.val();
-    var row = "<tr> <td>" + "<a href='jobDetails.html'>" +  snapshot.val().title + "</a>" + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td>  </tr>" 
-         
-      $(row).appendTo('#jobs');
-
+    var id=data.count;
     
+    var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
+     "<button type='button' id='button'>See Job Details</button>"+ "</td> </tr>" 
+     $(row).appendTo('#jobs');
+ 
+     var button = document.getElementById("button");
+     button.setAttribute("id",id);
+
+      //buton içinde id hep en son count olarak dönüyor. Her buton aynı sayı dönüyor.
+      
+  
+      
+      button.addEventListener("click", function(event){
+        console.log(button);
+        window.localStorage.setItem("JobId",id);
+        window.location.href = "/jobDetails.html"
+       
+      });
+     
  
   });
 
   tmp++;
  
   
-
-
 }
 
   
  }
   tmp==0;
+  //button onclick'te button id alsın
+  
+
   
   const ar=[];
   //array.forEach(e => {
@@ -93,7 +109,7 @@ while(tmp<count){
    var path = window.location.pathname;
    var page = path.split("/").pop();
   
-   if(page!=="login.html" && page!=="register.html" && page !== "index.html"){
+   if(page!=="login.html" && page!=="register.html"){
      window.location.href = "login.html"; 
    }
   
