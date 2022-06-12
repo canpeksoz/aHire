@@ -1,4 +1,4 @@
-window.onload(localStorage.getItem("JobId"));
+
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
@@ -58,30 +58,12 @@ console.log("deneme");
         console.log(data);
 
   var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
-   "</td> </tr>" 
+ "</td> </tr>" 
   $(row).appendTo('#jobs');
 
-  var button = document.getElementById("button");
 
-  button.addEventListener("click", function(event){
-    
-    onValue(Jobs, (snapshot) => {
-       
-  
-        const data = snapshot.val().count;
-    
-        set(ref(database,'Jobs/'+data+'/whoApplied'),{
-            
-            user:user.uid
-           
-        })
-       
-    });
 
-    
-  
-   
-  });
+
  
 
     }else{
@@ -90,23 +72,18 @@ console.log("deneme");
         var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
       "</td> </tr>" 
         $(row).appendTo('#jobs');
-        button.addEventListener("click", function(event){
-            console.log("deneme");
-     
-           
-          });
+      
         
     }
     
   });
-                 //data freelancere ise; sayfa kontrolü yaparak employer sayfalarına gitmeyi önler              
+
+    
+                 //data freelancere ise; sayfa kontrolü yaparak employer sayfalarına gitmeyi önler
+                
                 
                });
     
-       
-               
-       
-       
             }
     // kullanıcı giriş yapmamış olduğundan içeri giremez
                else{

@@ -27,7 +27,7 @@ const firebaseConfig = {
       this.cancelReply = this.id('cancel-reply');
       this.notif = this.id('notif');
 
-      // Reference to the current URL.
+      // firebase koleksiyonu açıyo
       this.commentsRef = firebase.database().ref('comments').child(this.slugify("forum"));
     }
 
@@ -39,7 +39,7 @@ const firebaseConfig = {
         .trim()
         .replace(/&/g, '-and-')
         .replace(/[\s\W-]+/g, '-')
-        .replace(/[^a-zA-Z0-9-_]+/g, '');
+        .replace(/[^a-zA-Z0-9-_]+/g, ''); // remove non-alphanumeric chars
     }
 
     id(gId) {
@@ -72,12 +72,12 @@ const firebaseConfig = {
 
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
+      //const analytics = getAnalytics(app);
       const auth = getAuth(app);
       const database = getDatabase(app);
       const dbRef = ref(getDatabase());
 
-      const contains = ["account", "address", "iban", "phone number", "number"].some(element => {
+      const contains = ["account", "address", "iban", "phone number", "number", "phone"].some(element => {
         if (message.includes(element)) {
           return true;
         }
@@ -132,7 +132,7 @@ const firebaseConfig = {
     const database = getDatabase(app);
     const dbRef = ref(getDatabase());
 
-    const contains = ["account", "address", "iban", "phone number", "number"].some(element => {
+    const contains = ["account", "address", "iban", "phone number", "number", "phone"].some(element => {
       if (message.includes(element)) {
         return true;
       }
