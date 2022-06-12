@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>employerProfileEdit</title>
+        <title>Edit</title>
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/font-awesome.min.css" />
@@ -39,7 +39,7 @@
                                         <span class="icon-bar"></span>
                                     </button>
                                     <a class="navbar-brand"
-                                        href="employerAfterLoginHome.html">
+                                        href="freelancerAfterLoginHome.html">
                                         <span class="glyphicon glyphicon-home">
                                             aHire </span>
                                     </a>
@@ -49,13 +49,16 @@
                                     <ul class="nav navbar-nav navbar-right">
                                         <li>
                                             <a
-                                                href="employerAfterLoginHome.html">Home</a>
+                                                href="freelancerAfterLoginHome.html">Home</a>
                                         </li>
                                         <li>
-                                            <a href="employerProfile.html">Profile</a>
+                                            <a href="freelancerProfile.html">Profile</a>
                                         </li>
+
                                         <li>
-                                            <a href="addPost.html">Post A Jobs</a>
+                                            <a
+                                                href="freelancerAfterLoginHome.html">Find
+                                                A Jobs</a>
                                         </li>
 
                                         <li>
@@ -75,127 +78,87 @@
                                                 </a>
                                             </span>
                                         </li>
-
-                                    </ul>
-                                </div>
+                                        an>
+                                    </li>
+                                </ul>
                             </div>
+                        </div>
 
-                        </nav>
-                        <!--End Navigation -->
-                    </div>
+                    </nav>
+
+                    <!--End Navigation -->
                 </div>
             </div>
-        </header>
-        <!--End Header -->
+        </div>
+    </header>
 
-        <section class="page-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h4 style="color:white">Employer Profile /
-                            <a href="index.html" style="color:white">Edit</a>
-                        </h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2 style="color:white">Jobs Available to You</h2>
-                    </div>
+    <!--End Header -->
+
+    <br></br>
+
+<!-- Main content -->
+<div id="main-content">
+
+    <!-- Now Post a Job when user login -->
+
+    <section id="">
+        <div class="container">
+            <!-- this is create a post row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h2> @Freelancer Profile UserName</h2>
                 </div>
             </div>
-        </section>
-        <br></br>
-
-    <!-- Main content -->
-    <div id="main-content">
-
-        <!-- Now Post a Job when user login -->
-
-        <section id="">
+            <!-- end row -->
+            <!-- Now create a post form -->
             <div class="container">
-                <!-- this is create a post row -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2> @Employer Profile UserName</h2>
-                    </div>
-                </div>
-                <!-- end row -->
-                <!-- Now create a post form -->
-                <div class="container">
-                    <div class="main-body">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex flex-column
-                                            align-items-center text-center">
-                                            <img
-                                                src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                                                alt="Admin"
-                                                class="rounded-circle p-1
-                                                bg-primary" width="110">
-                                            <div class="mt-3">
-                                                <h4>John Doe</h4>
-
-                                                <button class="btn
-                                                    btn-outline-primary">Message</button>
-                                            </div>
+                <div class="main-body">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex flex-column
+                                        align-items-center text-center">
+                                        <img
+                                            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                                            alt="Admin" class="rounded-circle
+                                            p-1 bg-primary" width="110">
+                                        <div class="mt-3">
+                                            <h4>John Doe</h4>
+                                            <p class="text-secondary mb-1">Full
+                                                Stack Developer</p>
+                                            <p class="text-muted font-size-sm">Bay
+                                                Area, San Francisco, CA</p>
                                         </div>
-
                                     </div>
+
                                 </div>
                             </div>
-                            <div class="col-lg-8">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row mb-3">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">Full Name</h6>
-                                            </div>
-                                            <div class="col-sm-9
-                                                text-secondary">
-                                                <input type="text"
-                                                    class="form-control"
-                                                    value="John Doe"
-                                                    id="empfname"
-                                                    name="empfname">
-
-                                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Abilities</h6>
                                         </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">Age</h6>
-                                            </div>
-                                            <div class="col-sm-9
-                                                text-secondary">
-                                                <input type="text"
-                                                    class="form-control"
-                                                    value="23" id="empage"
-                                                    name="empage">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">Date Of Birth</h6>
-                                            </div>
-                                            <div class="col-sm-9
-                                                text-secondary">
-                                                <input type="text"
-                                                    class="form-control"
-                                                    value="09 MAY 2022"
-                                                    id="empdateOfBirth"
-                                                    name="empdateOfBirth">
-                                            </div>
+                                        <div class="form-item box-item col-sm-9
+                                            text-secondary">
+                                            <input type="text" id="Abilities"
+                                                class="form-control"
+                                                placeholder="Abilities">
                                         </div>
 
-
+                                        <br><br>
                                         <div class="row">
                                             <div class="col-sm-3"></div>
                                             <div class="col-sm-9
                                                 text-secondary">
                                                 <input type="button" class="btn
-                                                    btn-primary px-4"
-                                                    value="Save Changes">
+                                                    btn-primary"
+                                                    value="Save
+                                                    Changes"
+                                                    id="freelancerUpdate">
                                             </div>
                                         </div>
                                     </div>

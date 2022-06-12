@@ -25,24 +25,39 @@ const firebaseConfig = {
 
   window.onload = function(){
 
-    onAuthStateChanged(auth,(user)=>{
+onAuthStateChanged(auth,(user)=>{
 
            if(user){
            user = auth.currentUser;
-           
+
+           const getType = ref(database, 'users/' + user.uid +"/profile");
+           onValue(getType, (snapshot) => {
+
+             const data = snapshot.val().type;
+             var path = window.location.pathname;
+             var page = path.split("/").pop();
+
+             //data freelancere ise; sayfa kontrolü yaparak employer sayfalarına gitmeyi önler
+            if(data=="Freelancer"){
+              if(page=="registerAfterLoginHome.html"){
+                alert("sayfa değişecek")
+                window.location.href = "freelancerAfterLoginHome.html"; 
+              }
+            }
+            
+           });
+
         }
 // kullanıcı giriş yapmamış olduğundan içeri giremez
            else{
             var path = window.location.pathname;
             var page = path.split("/").pop();
            
-            if(page!=="Login.html" && page!=="registeration.html"){
-              window.location.href = "index.html"; 
+             if (page !== "login.html" && page !== "register.html" && page !== "index.html"  ) {
+              window.location.href = "login.html"; 
             }
-           
            
         }
 
         })
 }
-

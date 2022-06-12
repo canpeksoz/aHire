@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
 //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
-import { getDatabase, set, ref,update, onValue  } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+import { getDatabase, ref, update} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
+import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
 
 
 const firebaseConfig = {
@@ -22,56 +22,55 @@ const auth = getAuth(app);
 const database = getDatabase(app);
 const user = auth.currentUser;
 
-submitdata.addEventListener('click',(e)=>{
+  window.onload = function(){
 
-    var email=document.getElementById('mail').value;
-var username=document.getElementById('username').value;
-var password=document.getElementById('password').value;
-var typeSelect = document.getElementById('nameSelect').value;
+      onAuthStateChanged(auth, (user) => {
 
+          
+        
+          console.log(user.uid)
 
-//user create
-createUserWithEmailAndPassword(auth, email, password)
-.then((userCredential) => {
-// Signed in 
-const user = userCredential.user;
-let dt = new Date();
-set(ref(database,'users/'+user.uid+'/profile'),{
+          
+          
+          if (user) {
 
-    username: username,
-    mail: email,
-    type: typeSelect,
-    
-})
-update(ref(database,'users/'+user.uid+'/profile'),{
+          
+            user = auth.currentUser;
+            
+              freelancerUpdate.addEventListener('click', (e) => {
 
-  last_login: dt,
+                  let Abilities = document.getElementById('Abilities').value;
+
+            
+            console.log(Abilities);
+            
+            update(ref(database, 'users/' + user.uid + '/profile'),
+                
+            {
+
+               Abilities: Abilities
+            
  
 })
-  alert('Registration Successfully !')
+
+
+
+    alert('Update Successfully !')
+    window.location.href = "employerProfile.html";
       
 
-  console.log(user.uid);
+
 // ...
 
-})
-.catch((error) => {
-const errorCode = error.code;
-  const errorMessage = error.message;
-    console.log(errorMessage)
-
-  alert(errorMessage)
-
 });
-     // console.log(typeSelect)
-   //if (typeSelect == 'Freelancer') {
-         //   window.location.href = "freelancerAfterLoginHome.html";
-         // } else {
-         //   window.location.href = "employerAfterLoginHome.html";
-         // }
+               
+               
+               
+        }
+
+        })
+}
 
 
-
-});
 
 

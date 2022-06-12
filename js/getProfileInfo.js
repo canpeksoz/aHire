@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
 //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
 import { getDatabase, set, ref, update, onValue, get,child } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+import { getAuth,  onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
 
 
 
@@ -31,15 +31,15 @@ var tmp=1;
 function GetAll(tmp, count){
  
 while(tmp<count){
-  const Jobs = ref(database, 'Jobs/'+tmp);
+  const Users = ref(database, 'users/'+tmp);
 
-  onValue(Jobs, (snapshot) => {
+  onValue(Users, (snapshot) => {
 
   
     const data = snapshot.val();
-    var row = "<tr> <td>" + "<a href='jobDetails.html'>" +  snapshot.val().title + "</a>" + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td>  </tr>" 
+    var row = "<tr> <td>" + "<a href='jobDetails.html'>" +  snapshot.val().Abilities + "</a>" + "</td>  </tr>" 
          
-      $(row).appendTo('#jobs');
+      $(row).appendTo('#ablTable');
 
     
  
@@ -93,7 +93,7 @@ while(tmp<count){
    var path = window.location.pathname;
    var page = path.split("/").pop();
   
-   if(page!=="login.html" && page!=="register.html" && page !== "index.html"){
+   if(page!=="login.html" && page!=="register.html"){
      window.location.href = "login.html"; 
    }
   
