@@ -48,6 +48,7 @@ update(ref(database,'users/'+user.uid+'/profile'),{
   last_login: dt,
  
 })
+
   alert('Registration Successfully !')
       
 
