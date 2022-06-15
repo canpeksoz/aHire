@@ -1,7 +1,7 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
 //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
 import { getDatabase, set, ref, update, onValue, get,child } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
 
 
 const firebaseConfig = {
@@ -61,42 +61,26 @@ var password=document.getElementById('password').value;
         } else {
           console.log("No data available");
         }
-        
-
-
-
-
     
       }).catch((error) => {
         console.error(error);
       });
-      
-        var email = document.getElementById('recoverPass').value;
-  
-    sendPasswordResetEmail(auth, email)
-      .then(() => {
-        console.log("SUCCESS")
-        alert("SUCCESS")
-    // Password reset email sent!
-    // ..
-      alert("Password reset email sent! Check your inbox or spam box !")
-  })
-    .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage)
-    // ..
-  });
 
 
 
 
     })
+
+
 .catch((error) => {
 const errorCode = error.code;
 const errorMessage = error.message;
 
-alert(errorMessage)
+  alert(errorMessage)
+  
+
+
+
 });
 
 
@@ -104,5 +88,27 @@ alert(errorMessage)
 
 
 });
+     resetPassword.addEventListener('click', (e) => {
 
+  var email = document.getElementById('recoverPass').value;
+  
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+
+
+        alert("Password reset email sent! Check your inbox or spam box !")
+ 
+
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage)
+    // ..
+
+  });
+
+
+
+});
 
