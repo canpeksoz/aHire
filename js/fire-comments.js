@@ -77,7 +77,7 @@ const firebaseConfig = {
       const database = getDatabase(app);
       const dbRef = ref(getDatabase());
 
-      const contains = ["account", "address", "iban", "phone number", "number", "phone"].some(element => {
+      const contains = ["account", "address", "iban", "phone number", "number", "phone", "0"].some(element => {
         if (message.includes(element)) {
           return true;
         }

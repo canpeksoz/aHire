@@ -28,7 +28,7 @@ function getBotResponse(input) {
     else if (input == "goodbye") {
         return "Talk to you later!";
     }else {
-        return "How can I use this site \n sea ";
+        return "How can I use this site";
 
     }
     
