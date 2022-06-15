@@ -2,7 +2,7 @@ function getBotResponse(input) {
 
     if (input == "Thank you") {
         return "See You !";
-    } 
+    } ""
     if (input == "I Love aHire !") {
         return "See You !";
     } 

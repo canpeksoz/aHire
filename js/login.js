@@ -61,10 +61,32 @@ var password=document.getElementById('password').value;
         } else {
           console.log("No data available");
         }
+        
+
+
+
+
     
       }).catch((error) => {
         console.error(error);
       });
+      
+        var email = document.getElementById('recoverPass').value;
+  
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        console.log("SUCCESS")
+        alert("SUCCESS")
+    // Password reset email sent!
+    // ..
+      alert("Password reset email sent! Check your inbox or spam box !")
+  })
+    .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage)
+    // ..
+  });
 
 
 
