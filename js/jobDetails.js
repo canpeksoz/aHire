@@ -2,7 +2,7 @@ window.onload(localStorage.getItem("JobId"));
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
-import { getDatabase, set, ref, update, onValue } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
+import { getDatabase, set, ref, update, onValue,get } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
    
 const firebaseConfig = {
@@ -20,7 +20,7 @@ const firebaseConfig = {
   const analytics = getAnalytics(app);
   const auth = getAuth(app);
   const database = getDatabase(app);
-
+  const updates = {};
  
  
 
@@ -40,61 +40,65 @@ const firebaseConfig = {
     
                if(user){
                user = auth.currentUser;
-    
+    //user tipine göre apply buton göstermek için 
                const getType = ref(database, 'users/' + user.uid +"/profile");
                onValue(getType, (snapshot) => {
-    
+    //kullanıcının type'ını çekiyoruz
                  const data = snapshot.val().type;
-                 //console.log(data);
-                console.log(localStorage.getItem("JobId"))
+         
                  const Jobs = ref(database, 'Jobs/'+localStorage.getItem("JobId"));
 
   onValue(Jobs, (snapshot) => {
-console.log("deneme");
+   
   
     const data1 = snapshot.val();
         
     if(data=="Freelancer"){
-        console.log(data);
-
+ 
+     
   var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
-   "</td> </tr>" 
+   "</td> <td>" +
+   "<button type='button' id='button'>APPLY JOB</button>"+ "</td></tr>" 
   $(row).appendTo('#jobs');
 
   var button = document.getElementById("button");
 
+
+
+ 
   button.addEventListener("click", function(event){
     
-    onValue(Jobs, (snapshot) => {
+    const getApplycount = ref(database, 'Jobs/'+localStorage.getItem("JobId"));
+    get(getApplycount, (snapshot) => {
        
-  
-        const data = snapshot.val().count;
+        let data = Number(snapshot.val().applyCount);
     
-        set(ref(database,'Jobs/'+data+'/whoApplied'),{
+        set(ref(database,'Jobs/'+ localStorage.getItem("JobId") +'/whoApplied/'+data),{
             
-            user:user.uid
-           
+            user:user.uid,
+            
         })
-       
+       // data=data+1;
+        /*update(ref(database,'Jobs/'+ localStorage.getItem("JobId")),{
+
+          applyCount: data,
+         
+        })
+        */
     });
 
-    
+  }); 
+
   
-   
-  });
  
 
     }else{
-
+   
 
         var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
       "</td> </tr>" 
         $(row).appendTo('#jobs');
-        button.addEventListener("click", function(event){
-            console.log("deneme");
-     
-           
-          });
+  
         
     }
     

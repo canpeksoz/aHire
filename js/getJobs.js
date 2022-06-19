@@ -55,7 +55,7 @@ button.setAttribute("id",id);
    button.addEventListener("click", function(event){
         console.log(button);
         window.localStorage.setItem("JobId",id);
-        window.location.href = "/jobDetails.html"
+       window.location.href = "/jobDetails.html"
        
      });
      

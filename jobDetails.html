@@ -107,24 +107,33 @@
                     <strong>Jobs</strong>
                 </h2>
                 <!-- Start Recent Jobs table -->
-                <table width="100%" cellspacing="1" class="table
-                    table-striped">
-                    <thead>
-                        <tr>
-                            <th width="55%">Title</th>
-                            <th>Category</th>
-                            <th>Deadline (Day)</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody id="jobsDetails">
+                <table id="searchTable" width="100%" cellspacing="1"
+                        class="table
+                        table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col" onclick="sort_table(jobs, 1,
+                                    asc2); asc2 *=
+                                    -1; asc3= 1; asc1= 1;">Title</th>
+                                <th scope="col" onclick="sort_table(jobs, 1,
+                                    asc2); asc2 *=
+                                    -1; asc3= 1; asc1= 1;">Category</th>
+                                <th scope="col" onclick="sort_table(jobs, 2,
+                                    asc3); asc3 *=
+                                    -1; asc1= 1; asc2= 1;">Deadline</th>
+                                <th scope="col" onclick="sort_table(jobs, 2,
+                                    asc3); asc3 *=
+                                    -1; asc1= 1; asc2= 1;">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody id="jobs">
+
+
+
+
 
                         </tbody>
-                        <th><a class="btn" id="applyButton"
-                                        target="__blank"
-                                        href="freelancerAppliedJob.html">Apply</a></th>
-
-                </table>
+                    </table>
             </div>
         </div>
     </div>
