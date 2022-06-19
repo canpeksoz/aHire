@@ -22,40 +22,42 @@ const firebaseConfig = {
   const auth = getAuth(app);
   const database = getDatabase(app);
   const dbRef = ref(getDatabase());
-  var tmp=1;
+  var tmp=0;
 
 
 
   
 function GetAll(tmp, count){
- 
-while(tmp<count){
   
+while(tmp<count){
+
   const Jobs = ref(database, 'Jobs/'+tmp);
 
   onValue(Jobs, (snapshot) => {
-
+    
   
     const data = snapshot.val();
-    var id=data.count;
     
+    var id=data.count;
+  
     var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
      "<button type='button' id='button'>See Job Details</button>"+ "</td> </tr>" 
      $(row).appendTo('#jobs');
  
      var button = document.getElementById("button");
-     button.setAttribute("id",id);
+   
+button.setAttribute("id",id);
 
       //buton içinde id hep en son count olarak dönüyor. Her buton aynı sayı dönüyor.
       
   
       
-      button.addEventListener("click", function(event){
+   button.addEventListener("click", function(event){
         console.log(button);
         window.localStorage.setItem("JobId",id);
         window.location.href = "/jobDetails.html"
        
-      });
+     });
      
  
   });
@@ -79,14 +81,16 @@ while(tmp<count){
   // get jobs data from firebase
   let count;
   onAuthStateChanged(auth,(user)=>{
-      
+    
   if(user){
+    
   user = auth.currentUser;
   get(child(dbRef, '/')).then((snapshot) => {
+    
   
     if (snapshot.exists()) {
       count= Number(snapshot.val().JobCount);
-      
+
       
   GetAll(tmp,count);
   

@@ -5,7 +5,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Posted Jobs</title>
+        <meta http-equiv="content-type"
+            content="text/html;charset=Windows-1252">
+        <title>Recent Jobs</title>
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/font-awesome.min.css" />
@@ -21,6 +23,19 @@
     </head>
 
     <body>
+        <style>
+          
+
+        #searchBox {
+
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}</style>
         <header>
             <div class="main-menu">
                 <div class="container">
@@ -41,7 +56,7 @@
                                         <span class="icon-bar"></span>
                                     </button>
                                     <a class="navbar-brand"
-                                        href="employerAfterLoginHome.html">
+                                        href="freelancerAfterLoginHome.html">
                                         <span class="glyphicon glyphicon-home">
                                             aHire </span>
                                     </a>
@@ -51,16 +66,17 @@
                                     <ul class="nav navbar-nav navbar-right">
                                         <li>
                                             <a
-                                                href="employerAfterLoginHome.html">Home</a>
+                                                href="freelancerAfterLoginHome.html">Home</a>
                                         </li>
                                         <li>
-                                            <a href="employerProfile.html">Profile</a>
+                                            <a href="freelancerProfile.html">Profile</a>
                                         </li>
 
                                         <li>
-                                            <a href="addPost.html">Post A Jobs</a>
+                                            <a
+                                                href="freelancerAfterLoginHome.html">Find
+                                                A Jobs</a>
                                         </li>
-
                                         <li>
                                             <div class="form-item">
                                                 <input type="submit" id="logout"
@@ -71,13 +87,6 @@
                                             </div>
                                         </li>
 
-                                        <li>
-                                            <a href="#">
-                                                <span class="glyphicon
-                                                    glyphicon-bell">
-                                                </a>
-                                            </span>
-                                        </li>
 
                                     </ul>
                                 </div>
@@ -96,37 +105,42 @@
     <div id="main-content">
         <div class="container">
             <div class="row">
+                <input type="text" id="searchBox" onkeyup="searchBox()"
+                    placeholder="UI, UX, Web Design...">
+
+
                 <div class="col-md-12">
-                    <h2 style="margin:10px;">Posted
+
+                    <h2 style="margin:10px;">Recent
                         <strong>Jobs</strong>
                     </h2>
+
+
+
                     <!-- Start Recent Jobs table -->
-                    <table width="100%" cellspacing="1" class="table
+                    <table id="searchTable" width="100%" cellspacing="1"
+                        class="table
                         table-striped">
                         <thead>
                             <tr>
-                                <th width="55%">Title</th>
-                                <th>Category</th>
-                                <th>Deadline (Day)</th>
-                                <th>Price</th>
+                                <th scope="col" onclick="sort_table(jobs, 1,
+                                    asc2); asc2 *=
+                                    -1; asc3= 1; asc1= 1;">Title</th>
+                                <th scope="col" onclick="sort_table(jobs, 1,
+                                    asc2); asc2 *=
+                                    -1; asc3= 1; asc1= 1;">Category</th>
+                                <th scope="col" onclick="sort_table(jobs, 2,
+                                    asc3); asc3 *=
+                                    -1; asc1= 1; asc2= 1;">Deadline</th>
+                                <th scope="col" onclick="sort_table(jobs, 2,
+                                    asc3); asc3 *=
+                                    -1; asc1= 1; asc2= 1;">Price</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <!-- row 1 -->
-                            <tr>
-                                <th>
-                                    <a href="jobDetails.html" id="title">Web
-                                        Designer</a>
-                                </th>
-                                <th>
-                                    <div id="category">Software &
-                                        Technology</div>
-                                </th>
-                                <td id="day">2</td>
-                                <td id="price">4000₺</td>
+                        <tbody id="jobs">
 
-                            </tr>
-                            <!-- row 2 -->
+
+
 
 
                         </tbody>
@@ -135,8 +149,65 @@
             </div>
         </div>
 
+        <script>
+            
+    function searchBox() {
+  // Declare variables
 
+  var input, filter, found, table, tr, td, i, j;
+    input = document.getElementById("searchBox");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("searchTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++ ) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                found = true;
+            }
+        }
+       
+        if (found) {
+            tr[i].style.display = "";
+            found = false;
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
+</script>
+        <script type="text/javascript">
+        var people, asc1 = 1,
+            asc2 = 1,
+            asc3 = 1;
+        window.onload = function () {
+            people = document.getElementById("people");
+        }
 
+        function sort_table(tbody, col, asc) {
+            var rows = tbody.rows,
+                rlen = rows.length,
+                arr = new Array(),
+                i, j, cells, clen;
+            // fill the array with values from the table
+            for (i = 0; i < rlen; i++) {
+                cells = rows[i].cells;
+                clen = cells.length;
+                arr[i] = new Array();
+                for (j = 0; j < clen; j++) {
+                    arr[i][j] = cells[j].innerHTML;
+                }
+            }
+            // sort the array by the specified column number (col) and order (asc)
+            arr.sort(function (a, b) {
+                return (a[col] == b[col]) ? 0 : ((a[col] > b[col]) ? asc : -1 * asc);
+            });
+            // replace existing rows with new rows created from the sorted array
+            for (i = 0; i < rlen; i++) {
+                rows[i].innerHTML = "<td>" + arr[i].join("</td><td>") + "</td>";
+            }
+        }
+    </script>
         <!-- end column content -->
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -150,7 +221,6 @@
         <script src="js/functions.js"></script>
         <script type="text/javascript">new WOW().init();</script>
         <script type="module" src="/js/firebase.js"></script>
-
 
         <!-- CHAT BAR BLOCK -->
         <div class="chat-bar-collapsible">
@@ -203,6 +273,7 @@
 
         </div>
 
+
     </body>
     <script
         src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -211,4 +282,5 @@
     <script type="module" src="js/firebase.js"></script>
     <script type="module" src="js/authControl.js"></script>
     <script type="module" src="js/getJobs.js"></script>
+
 </html>
