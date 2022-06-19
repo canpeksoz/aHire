@@ -435,7 +435,7 @@
                                 field</small>
                         </div>
                         <div class="form-item box-item">
-                            <input type="number" min="0" name="price" id="price" placeholder="Price" data-required>
+                            <input type="number" min="0" oninput="this.value = Math.abs(this.value)" name="price" id="price" placeholder="Price" data-required>
                             <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> required
                                 field</small>
                         </div>
