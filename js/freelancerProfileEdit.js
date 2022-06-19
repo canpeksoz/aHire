@@ -22,36 +22,32 @@ const auth = getAuth(app);
 const database = getDatabase(app);
 const user = auth.currentUser;
 
+  window.onload = function(){
 
+      onAuthStateChanged(auth, (user) => {
 
-window.onload = function(){
+          if (user) {
+            user = auth.currentUser;
+              freelancerUpdate.addEventListener('click', (e) => {
+                  let Abilities = document.getElementById('Abilities').value;
 
-  onAuthStateChanged(auth, (user) => {
+            update(ref(database, 'users/' + user.uid + '/profile'),
+                
+            {
 
-      if (user) {
-        user = auth.currentUser;
-     
-              
-const getProfile = ref(database, 'users/' + user.uid + '/profile');
-onValue(getProfile, (snapshot) => {
-  const abilities = snapshot.val().Abilities;
- const username=snapshot.val().username;
- document.getElementById("username").innerHTML=username;
- document.getElementById("ablTable").innerHTML=abilities;
+               Abilities: Abilities
  
+})
+
+    alert('Update Successfully !')
+    window.location.href = "employerProfile.html";
+
 });
+                   
+        }
 
-
-
-        
-    }
-
-    })
+        })
 }
-
-
-
-
 
 
 

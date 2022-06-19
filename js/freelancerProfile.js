@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
 //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
-import { getDatabase, ref, update} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
+import { getDatabase, ref, update, onValue} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
 import { getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
 
 
@@ -22,54 +22,36 @@ const auth = getAuth(app);
 const database = getDatabase(app);
 const user = auth.currentUser;
 
-  window.onload = function(){
 
-      onAuthStateChanged(auth, (user) => {
 
-          
-        
-          console.log(user.uid)
+window.onload = function(){
 
-          
-          
-          if (user) {
+  onAuthStateChanged(auth, (user) => {
 
-          
-            user = auth.currentUser;
-            
-              freelancerUpdate.addEventListener('click', (e) => {
-
-                  let Abilities = document.getElementById('Abilities').value;
-
-            
-            console.log(Abilities);
-            
-            update(ref(database, 'users/' + user.uid + '/profile'),
-                
-            {
-
-               Abilities: Abilities
-            
+      if (user) {
+        user = auth.currentUser;
+     
+              
+const getProfile = ref(database, 'users/' + user.uid + '/profile');
+onValue(getProfile, (snapshot) => {
+  const abilities = snapshot.val().Abilities;
+ const username=snapshot.val().username;
+ document.getElementById("username").innerHTML=username;
+ document.getElementById("ablTable").innerHTML=abilities;
  
-})
-
-
-
-    alert('Update Successfully !')
-    window.location.href = "freelancerProfile.html";
-      
-
-
-// ...
-
 });
-               
-               
-               
-        }
 
-        })
+
+
+        
+    }
+
+    })
 }
+
+
+
+
 
 
 
