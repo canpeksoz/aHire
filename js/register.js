@@ -54,7 +54,7 @@ update(ref(database,'users/'+user.uid+'/profile'),{
 
   console.log(user.uid);
 // ...
-                  window.location.href = "Login.html"; 
+               
 })
 .catch((error) => {
 const errorCode = error.code;
@@ -64,6 +64,7 @@ const errorCode = error.code;
   alert(errorMessage)
 
 });
+
      // console.log(typeSelect)
    //if (typeSelect == 'Freelancer') {
          //   window.location.href = "freelancerAfterLoginHome.html";
