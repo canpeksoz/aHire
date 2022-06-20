@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Details</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css"
+        type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/isotope.css"
+        media="screen" />
+
+    <link rel="stylesheet" href="css/chatFroum.css">
+    <link rel="icon" href="img/favicon-ad.png" />
+    <link rel="stylesheet" href="css/popup.css">
+</head>
+
+<body>
+    <header>
+        <div class="main-menu">
+            <div class="container">
+                <div class="row">
+                    <!-- Now create a Navigation -->
+
+                    <nav class="navbar navbar-inverse navbar-fixed-top">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle
+                                    collapsed" data-toggle="collapse"
+                                    data-target="#bs-example-navbar-collapse-1"
+                                    aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand"
+                                    href="employerAfterLoginHome.html">
+                                    <span class="glyphicon glyphicon-home">
+                                        aHire </span>
+                                </a>
+                            </div>
+                            <div class="collapse navbar-collapse"
+                                id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li>
+                                        <a
+                                            href="employerAfterLoginHome.html">Employer
+                                            Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="employerProfile.html">Profile</a>
+                                    </li>
+
+                                    <li>
+                                        <a
+                                            href="addPost.html">Create Post</a>
+                                    </li>
+                                    <li>
+                                        <div class="form-item">
+                                            <input type="submit" id="logout"
+                                                name="logout" value="logout"
+                                                class="btn btn-primary
+                                                pull-right push-bottom"
+                                                data-loading-text="Loading...">
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </nav>
+
+                    <!--End Navigation -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <br></br>
+<!-- column content -->
+<div id="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 style="margin:10px;">
+                    <strong>PAYMENT</strong>
+                </h2>
+                <!-- Start Recent Jobs table -->
+                <table id="searchTable" width="100%" cellspacing="1"
+                    class="table
+                    table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" onclick="sort_table(jobs, 1,
+                                asc2); asc2 *=
+                                -1; asc3= 1; asc1= 1;">Title</th>
+                            <th scope="col" onclick="sort_table(jobs, 1,
+                                asc2); asc2 *=
+                                -1; asc3= 1; asc1= 1;">Category</th>
+                            <th scope="col" onclick="sort_table(jobs, 2,
+                                asc3); asc3 *=
+                                -1; asc1= 1; asc2= 1;">Deadline</th>
+                            <th scope="col" onclick="sort_table(jobs, 2,
+                                asc3); asc3 *=
+                                -1; asc1= 1; asc2= 1;">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="jobs">
+                    </tbody>
+                    
+                    </table>
+                    <body>
+                        <!-- row 1 -->
+                        <tr>
+                                <button class="btn btn-info"
+                                    id="paypalPayment">Pay Now</button>
+                                <div id="myModal" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <div class="row">
+                                            <section class="section">
+
+                                                <main>
+
+                                                    <form>
+
+                                                        <!-- Set up a container element for the button -->
+                                                        <div
+                                                            id="paypal-button-container"></div>
+                                                        <!-- Replaced app client ID -->
+                                                        <script
+                                                            src="https://www.paypal.com/sdk/js?client-id=AZecrFBQLNekrbUyuRVKkAn_G3J9tMc_FaXF73xZwihv28L0FKkZBk2Vr9cLZQ9px3_zvYc1I1be2XNm"></script>
+                                                        <script>
+                                                                // take popup
+                                                                    var modal = document.getElementById('myModal');
+                                                                    // take open button
+                                                                    var btn = document.getElementById("paypalPayment");
+                                                                    // take closer
+                                                                    var span = document.getElementsByClassName("close")[0];
+                                                                    // when click
+                                                                    btn.onclick = function () {
+                                                                        modal.style.display = "block";
+                                                                    }
+                                                                    // when click (x) 
+                                                                    span.onclick = function () {
+                                                                        modal.style.display = "none";
+                                                                    }
+                                                                    // if user click anywhere except modal, close model
+                                                                    window.onclick = function (event) {
+                                                                        if (event.target == modal) {
+                                                                        modal.style.display = "none";
+                                                                        }
+                                                                    }
+
+
+
+
+                                                                    paypalPayment.addEventListener('click', (e) => {
+                                                                        var fee = document.getElementById('price').innerText;
+
+                                                                        console.log(fee);
+
+                                                                        paypal.Buttons({
+
+                                                                            // Sets up the transaction when a payment button is clicked
+                                                                            createOrder: (data, actions) => {
+                                                                                return actions.order.create({
+                                                                                    purchase_units: [{
+                                                                                        amount: {
+                                                                                            value: fee // Can also reference a variable or function
+                                                                                        }
+                                                                                    }]
+                                                                                });
+                                                                            },
+                                                                            // Finalize the transaction after payer approval
+                                                                            onApprove: (data, actions) => {
+                                                                            return actions.order.capture().then(function (orderData) {
+                                                                                    // Successful
+                                                                                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                                                                                    const transaction = orderData.purchase_units[0].payments.captures[0];
+                                                                                    alert(`Transaction ${transaction.status}: ${transaction.id}\n\Transaction Completed.`);
+                                                                                    const element = document.getElementById('paypal-button-container');
+                                                                                    //element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                                                                                    window.location.replace('employerAfterLoginHome.html');
+                                                                                });
+                                                                            },
+
+                                                                            style: {
+                                                                                layout: 'vertical',
+                                                                                color: 'blue',
+                                                                                shape: 'pill',
+                                                                                label: 'paypal'
+                                                                            }
+                                                                        }).render('#paypal-button-container');
+
+                                                                    });
+
+
+
+                                                                </script>
+                                                    </form>
+                                                </main>
+
+
+                                            </section>
+                                        </div>
+
+
+
+                                    </div>
+
+
+                                    <!-- <td><input type="submit" value="Payment" class="btn" id="goPayment" onclick="PaymentRequest"></td>-->
+                                </td>
+
+
+                            </tr>
+                            <!-- row 2 -->
+
+
+                        </body>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- Dependencies -->
+        <script src="js/md5.js"></script>
+        <script src="js/timeago.js"></script>
+        <script src="js/xss-filters.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <!-- end column content -->
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.isotope.min.js"></script>
+        <script src="js/fancybox/jquery.fancybox.pack.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/functions.js"></script>
+        <script type="text/javascript">new WOW().init();</script>
+        <script type="module" src="/js/firebase.js"></script>
+        <script type="module" src="js/authControl.js"></script>
+        <script type="module" src="js/jobDetails.js"></script>
+
+    </body>
+
+</html>
