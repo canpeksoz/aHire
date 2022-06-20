@@ -76,10 +76,13 @@ const firebaseConfig = {
       const data = snapshot.val().applyCount;
       set(ref(database,'Jobs/'+ localStorage.getItem("JobId") +'/whoApplied/'+data),{
             
-        user:user.uid,
+        user: user.uid,
+        
+        
         
     })
     });
+                window.location.href = "freelancerAppliedJob.html";
 
 
 }); 
@@ -185,7 +188,7 @@ const firebaseConfig = {
                  alert(`Transaction ${transaction.status}: ${transaction.id}\n\Transaction Completed.`);
                  const element = document.getElementById('paypal-button-container');
                  //element.innerHTML = '<h3>Thank you for your payment!</h3>';
-                // window.location.replace('employerAfterLoginHome.html');
+                 window.location.replace('employerAfterLoginHome.html');
              });
          },
 
