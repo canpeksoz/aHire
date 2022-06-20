@@ -40,7 +40,7 @@ const user = auth.currentUser;
 })
 
     alert('Update Successfully !')
-    window.location.href = "employerProfile.html";
+    window.location.href = "freelancerProfile.html";
 
 });
                    

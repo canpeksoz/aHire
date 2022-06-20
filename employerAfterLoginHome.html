@@ -124,9 +124,10 @@
                                 <td>Maximum Price:</td>
                                 <td><input type="text" id="max" name="max"></td>
                             </tr>
+
                         </tbody></table>
-
-
+                    <button class="btn btn-info" type="rangeSearch"
+                        id="rangeSearch" onclick="rangeSearch()">APPLY</button>
                     <!-- Start Recent Jobs table -->
                     <table id="searchTable" width="100%" cellspacing="1"
                         class="table
@@ -187,11 +188,11 @@
 }
 </script>
         <script type="text/javascript">
-        var people, asc1 = 1,
+        var searchTable, asc1 = 1,
             asc2 = 1,
             asc3 = 1;
         window.onload = function () {
-            people = document.getElementById("people");
+            searchTable = document.getElementById("searchTable");
         }
 
         function sort_table(tbody, col, asc) {
@@ -217,9 +218,7 @@
                 rows[i].innerHTML = "<td>" + arr[i].join("</td><td>") + "</td>";
             }
         }
-    </script>
-        <script>
-        /* Custom filtering function which will search data in column four between two values */
+          /* Custom filtering function which will search data in column four between two values */
 $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
     var min = parseInt($('#min').val(), 10);
     var max = parseInt($('#max').val(), 10);
@@ -319,5 +318,6 @@ $(document).ready(function () {
     <script type="module" src="js/firebase.js"></script>
     <script type="module" src="js/authControl.js"></script>
     <script type="module" src="js/getJobsEmployer.js"></script>
+    <script type="module" src="js/rangeSearch.js"></script>
 
 </html>
