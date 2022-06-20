@@ -143,76 +143,8 @@
                                                         <div
                                                             id="paypal-button-container"></div>
                                                         <!-- Replaced app client ID -->
-                                                        <script
-                                                            src="https://www.paypal.com/sdk/js?client-id=AZecrFBQLNekrbUyuRVKkAn_G3J9tMc_FaXF73xZwihv28L0FKkZBk2Vr9cLZQ9px3_zvYc1I1be2XNm"></script>
-                                                        <script>
-                                                                // take popup
-                                                                    var modal = document.getElementById('myModal');
-                                                                    // take open button
-                                                                    var btn = document.getElementById("paypalPayment");
-                                                                    // take closer
-                                                                    var span = document.getElementsByClassName("close")[0];
-                                                                    // when click
-                                                                    btn.onclick = function () {
-                                                                        modal.style.display = "block";
-                                                                    }
-                                                                    // when click (x) 
-                                                                    span.onclick = function () {
-                                                                        modal.style.display = "none";
-                                                                    }
-                                                                    // if user click anywhere except modal, close model
-                                                                    window.onclick = function (event) {
-                                                                        if (event.target == modal) {
-                                                                        modal.style.display = "none";
-                                                                        }
-                                                                    }
-
-
-
-
-                                                                    paypalPayment.addEventListener('click', (e) => {
-                                                                        var fee = document.getElementById('price').innerText;
-
-                                                                        console.log(fee);
-
-                                                                        paypal.Buttons({
-
-                                                                            // Sets up the transaction when a payment button is clicked
-                                                                            createOrder: (data, actions) => {
-                                                                                return actions.order.create({
-                                                                                    purchase_units: [{
-                                                                                        amount: {
-                                                                                            value: fee // Can also reference a variable or function
-                                                                                        }
-                                                                                    }]
-                                                                                });
-                                                                            },
-                                                                            // Finalize the transaction after payer approval
-                                                                            onApprove: (data, actions) => {
-                                                                            return actions.order.capture().then(function (orderData) {
-                                                                                    // Successful
-                                                                                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                                                                                    const transaction = orderData.purchase_units[0].payments.captures[0];
-                                                                                    alert(`Transaction ${transaction.status}: ${transaction.id}\n\Transaction Completed.`);
-                                                                                    const element = document.getElementById('paypal-button-container');
-                                                                                    //element.innerHTML = '<h3>Thank you for your payment!</h3>';
-                                                                                    window.location.replace('employerAfterLoginHome.html');
-                                                                                });
-                                                                            },
-
-                                                                            style: {
-                                                                                layout: 'vertical',
-                                                                                color: 'blue',
-                                                                                shape: 'pill',
-                                                                                label: 'paypal'
-                                                                            }
-                                                                        }).render('#paypal-button-container');
-
-                                                                    });
-
-
-
-                                                                </script>
+                                                        <script src="https://www.paypal.com/sdk/js?client-id=AZecrFBQLNekrbUyuRVKkAn_G3J9tMc_FaXF73xZwihv28L0FKkZBk2Vr9cLZQ9px3_zvYc1I1be2XNm"></script>
+                                                        
                                                     </form>
                                                 </main>
 

@@ -37,7 +37,7 @@ while(tmp<count){
     
     const data = snapshot.val();
   //yalnızca işe başlanmadıysa ve iş tamamlanmadıysa burada gösterilebilir  
-if(data.isDone==false && data.isStarted==false){
+if(data.isDone==false && data.isStarted==true){
 
   var id=data.count;
   
@@ -56,6 +56,8 @@ button.setAttribute("id",id);
  button.addEventListener("click", function(event){
       console.log(button);
       window.localStorage.setItem("JobId",id);
+      window.localStorage.setItem("Price",data.price);
+      
      window.location.href = "/paymentSection.html"
      
    });
