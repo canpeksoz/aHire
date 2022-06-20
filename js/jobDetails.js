@@ -58,7 +58,7 @@ const firebaseConfig = {
      
   var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
    "</td> <td>" +
-   "<button type='button' id='button'>APPLY JOB</button>"+ "</td></tr>" 
+   "<button type='button' class='btn btn-info' id='button'>APPLY JOB</button>"+ "</td></tr>" 
   $(row).appendTo('#jobs');
 
   var button = document.getElementById("button");

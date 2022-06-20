@@ -212,7 +212,6 @@ const firebaseConfig = {
   showReplies() {
     let thisReplyRef = firebase.database().ref('comments/' + this.slugify("forum") + '/' + this.key + '/replies');
     thisReplyRef.on('child_added', snap => {
-      console.log(firebase.auth().currentUser);
       let r = snap.val();
       let liRep = document.createElement('li');
 
