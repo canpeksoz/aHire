@@ -40,6 +40,7 @@ const firebaseConfig = {
     
                if(user){
                user = auth.currentUser;
+               
     //user tipine göre apply buton göstermek için 
                const getType = ref(database, 'users/' + user.uid +"/profile");
                onValue(getType, (snapshot) => {
@@ -68,28 +69,34 @@ const firebaseConfig = {
  
   button.addEventListener("click", function(event){
     
-    const getApplycount = ref(database, 'Jobs/'+localStorage.getItem("JobId"));
-    get(getApplycount, (snapshot) => {
-       
-        let data = Number(snapshot.val().applyCount);
-    
-        set(ref(database,'Jobs/'+ localStorage.getItem("JobId") +'/whoApplied/'+data),{
+   
+    const starCountRef = ref(database,'Jobs/'+localStorage.getItem("JobId"));
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val().applyCount;
+      set(ref(database,'Jobs/'+ localStorage.getItem("JobId") +'/whoApplied/'+data),{
             
-            user:user.uid,
-            
-        })
-       // data=data+1;
-        /*update(ref(database,'Jobs/'+ localStorage.getItem("JobId")),{
-
-          applyCount: data,
-         
-        })
-        */
+        user:user.uid,
+        
+    })
     });
 
-  }); 
 
+
+
+/*
+    const getApplycount = ref(database, 'Jobs/'+localStorage.getItem("JobId"));
   
+    get(getApplycount, (snapshot) => {
+      console.log("deneme");
+        let data = Number(snapshot.val().applyCount);
+   
+       
+       
+    });
+
+
+*/
+}); 
  
 
     }else{
