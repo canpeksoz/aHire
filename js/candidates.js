@@ -1,3 +1,7 @@
+window.onload(localStorage.getItem("JobId"));
+console.log(localStorage.getItem("JobId"));
+  
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
 //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
 import { getDatabase, set, ref, update, onValue, get,child } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
@@ -27,7 +31,7 @@ const firebaseConfig = {
 
 
   
-function GetAll(tmp, count,usermail){
+function GetAll(tmp, count,usermail,userID){
  
 while(tmp<count){
    
@@ -39,30 +43,64 @@ while(tmp<count){
     const data = snapshot.val();
     
     var id=data.count;
-
+//jobu oluşturanın maili = ise şu anki kullanıcının mailine o zaman verileri basıyor
     if(usermail==data.mail){
-      if(data.isDone==false && data.isStarted==false){
+    
    
-  
-    var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
-     "<button type='button' class='btn btn-info' id='button'>SEE CANDIDATES</button>"+ "</td> </tr>" 
-     $(row).appendTo('#jobs');
- 
-     var button = document.getElementById("button");
-   
+        if(data.whoApplied){
+            data.whoApplied.forEach(myFunction)
+
+            function myFunction(item, index, arr) {
+                arr[index] = item.user;
+        
+
+             
+const getCandidateData = ref(database, 'users/'+ arr[index]+'/profile' );
+onValue(getCandidateData, (snapshot) => {
+  const username = snapshot.val().username;
+  const ability= snapshot.val().Abilities;
+
+
+  var row = "<tr> <td>" +  username + "</td>  <td>" + ability + "</td> <td>" +
+  "<button type='button' class='btn btn-info' id='button'>SELECT CANDIDATE</button>"+ "</td> </tr>" 
+  $(row).appendTo('#jobs');
+
+  var button = document.getElementById("button");
+
 button.setAttribute("id",id);
 
-      //buton içinde id hep en son count olarak dönüyor. Her buton aynı sayı dönüyor.
-      
-  
-      
-   button.addEventListener("click", function(event){
-        console.log(button);
-        window.localStorage.setItem("JobId",id);
-       window.location.href = "/candidates.html"
+button.addEventListener("click", function(event){
+
+    update(ref(database,'Jobs/'+localStorage.getItem("JobId")),{
+
+        hiredFreelancer: arr[index],
+        isActive: false,
+        isStarted:true
        
-     });
-    }
+      })
+
+//window.location.href = "/employerProfile.html"
+
+});
+
+
+
+});
+
+
+
+                   
+
+                
+
+                
+               
+            }
+
+
+        }
+
+ 
     } 
  
   });
@@ -98,7 +136,8 @@ button.setAttribute("id",id);
       
       get(child(dbRef, 'users/'+user.uid+'/profile')).then((snapshot) => {
         const usermail=snapshot.val().mail
-        GetAll(tmp,count,usermail);
+        const userID=user.uid;
+        GetAll(tmp,count,usermail,userID);
       });
 
   
