@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
 //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
 import { getDatabase, set, ref, update, onValue, get,child } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
 
 
 
@@ -42,16 +42,12 @@ if(data.isDone==false && data.isStarted==false){
   var id=data.count;
   
   var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
-   "</td> </tr>" 
+ "</td> </tr>" 
    $(row).appendTo('#jobs');
 
-   var button = document.getElementById("button");
- 
-button.setAttribute("id",id);
-
-    //buton içinde id hep en son count olarak dönüyor. Her buton aynı sayı dönüyor.
 }
   });
+
   tmp++;
 }
  }
@@ -59,6 +55,7 @@ button.setAttribute("id",id);
   //button onclick'te button id alsın
   const ar=[];
   //array.forEach(e => {
+      
  // });
   // get jobs data from firebase
   let count;

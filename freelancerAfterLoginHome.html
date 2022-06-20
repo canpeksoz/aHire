@@ -18,6 +18,7 @@
             media="screen" />
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/chat.css">
+        <link rel="stylesheet" href="css/sort.css">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
@@ -66,7 +67,8 @@
                                     <ul class="nav navbar-nav navbar-right">
                                         <li>
                                             <a
-                                                href="freelancerAfterLoginHome.html">Freelancer Home</a>
+                                                href="freelancerAfterLoginHome.html">Freelancer
+                                                Home</a>
                                         </li>
                                         <li>
                                             <a href="freelancerProfile.html">Profile</a>
@@ -120,7 +122,7 @@
                     <!-- Start Recent Jobs table -->
                     <table id="searchTable" width="100%" cellspacing="1"
                         class="table
-                        table-striped">
+                        table-striped table-sortable">
                         <thead>
                             <tr>
                                 <th scope="col" onclick="sort_table(jobs, 1,
@@ -282,5 +284,6 @@
     <script type="module" src="js/firebase.js"></script>
     <script type="module" src="js/authControl.js"></script>
     <script type="module" src="js/getJobs.js"></script>
+    <script type="module" src="js/tablesort.js"></script>
 
 </html>

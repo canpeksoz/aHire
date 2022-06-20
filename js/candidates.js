@@ -62,7 +62,7 @@ onValue(getCandidateData, (snapshot) => {
 
 
   var row = "<tr> <td>" +  username + "</td>  <td>" + ability + "</td> <td>" +
-  "<button type='button' class='btn btn-info' id='button'>SELECT CANDIDATE</button>"+ "</td> </tr>" 
+  "<a type='button' class='btn btn-info' id='button' href='employerHiredJobs.html' >SELECT CANDIDATE</a>"+ "</td> </tr>" 
   $(row).appendTo('#jobs');
 
   var button = document.getElementById("button");
@@ -75,7 +75,8 @@ button.addEventListener("click", function(event){
 
         hiredFreelancer: arr[index],
         isActive: false,
-        isStarted:true
+      isStarted: true,
+   
        
       })
 
@@ -85,7 +86,9 @@ button.addEventListener("click", function(event){
 
 
 
+
 });
+                   
 
 
 
@@ -98,7 +101,8 @@ button.addEventListener("click", function(event){
             }
 
 
-        }
+      }
+     
 
  
     } 
@@ -111,7 +115,8 @@ button.addEventListener("click", function(event){
 }
 
   
- }
+}
+
   tmp==0;
   //button onclick'te button id alsın
   
@@ -167,4 +172,4 @@ button.addEventListener("click", function(event){
   
 }
 
-})
+  })

@@ -134,31 +134,29 @@
 
                     <table width="100%" cellspacing="1" class="table
                         table-striped">
-                        <thead>                               
+                        <thead>
 
-                                <!-- <td><a href="paypal.html" target="payment" title="Payment" id="paypalPayment" rel="Payment">Payment</a></td>-->
-                                <td>
-                                    <!-- <a class="btn" id="paypalPayment" target="__blank" href="paypal.html">Payment</a>-->
-                                    <!--<input type="submit" id="paypalPayment" name="paypalPayment" value="Pay Now" onclick="paypal"()>-->
-                                    <button class="btn btn-info"
-                                        id="paypalPayment">Pay Now</button>
-                                    <div id="myModal" class="modal">
-                                        <div class="modal-content">
-                                            <span class="close">&times;</span>
-                                            <div class="row">
-                                                <section class="section">
+                            <!-- <td><a href="paypal.html" target="payment" title="Payment" id="paypalPayment" rel="Payment">Payment</a></td>-->
+                            <td>
+                                <!-- <a class="btn" id="paypalPayment" target="__blank" href="paypal.html">Payment</a>-->
+                                <!--<input type="submit" id="paypalPayment" name="paypalPayment" value="Pay Now" onclick="paypal"()>-->
+                                <div id="myModal" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <div class="row">
+                                            <section class="section">
 
-                                                    <main>
+                                                <main>
+                                                    <!-- 
+                                                    <form>
 
-                                                        <form>
-
-                                                            <!-- Set up a container element for the button -->
-                                                            <div
-                                                                id="paypal-button-container"></div>
-                                                            <!-- Replaced app client ID -->
-                                                            <script
-                                                                src="https://www.paypal.com/sdk/js?client-id=AZecrFBQLNekrbUyuRVKkAn_G3J9tMc_FaXF73xZwihv28L0FKkZBk2Vr9cLZQ9px3_zvYc1I1be2XNm"></script>
-                                                            <script>
+                                                       
+                                                        <div
+                                                            id="paypal-button-container"></div>
+                                                 
+                                                        <script
+                                                            src="https://www.paypal.com/sdk/js?client-id=AZecrFBQLNekrbUyuRVKkAn_G3J9tMc_FaXF73xZwihv28L0FKkZBk2Vr9cLZQ9px3_zvYc1I1be2XNm"></script>
+                                                        <script>
                                                                 // take popup
                                                                     var modal = document.getElementById('myModal');
                                                                     // take open button
@@ -226,54 +224,55 @@
 
 
                                                                 </script>
-                                                        </form>
-                                                    </main>
+                                                    </form>
+-->
+                                                </main>
 
 
-                                                </section>
-                                            </div>
-
-
-
+                                            </section>
                                         </div>
 
 
-                                        <!-- <td><input type="submit" value="Payment" class="btn" id="goPayment" onclick="PaymentRequest"></td>-->
-                                    </td>
+
+                                    </div>
 
 
-                                </tr>
-                                <!-- row 2 -->
+                                    <!-- <td><input type="submit" value="Payment" class="btn" id="goPayment" onclick="PaymentRequest"></td>-->
+                                </td>
 
 
-                            </body>
-                        </table>
-                    </div>
+                            </tr>
+                            <!-- row 2 -->
+
+
+                        </body>
+                    </table>
                 </div>
             </div>
+        </div>
 
 
 
-            <script
-                src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <!-- end column content -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- end column content -->
 
-            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-            <script
-                src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-            <!-- Include all compiled plugins (below), or include individual files as needed -->
-            <script src="js/bootstrap.min.js"></script>
-            <script src="js/jquery.isotope.min.js"></script>
-            <script src="js/fancybox/jquery.fancybox.pack.js"></script>
-            <script src="js/wow.min.js"></script>
-            <script src="js/functions.js"></script>
-            <script type="text/javascript">new WOW().init();</script>
-            <script type="module" src="/js/firebase.js"></script>
-            <script type="module" src="js/authControl.js"></script>
-            <script type="module" src="js/employerHiredJobs.js"></script>
-        </body>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.isotope.min.js"></script>
+        <script src="js/fancybox/jquery.fancybox.pack.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/functions.js"></script>
+        <script type="text/javascript">new WOW().init();</script>
+        <script type="module" src="/js/firebase.js"></script>
+        <script type="module" src="js/authControl.js"></script>
+        <script type="module" src="js/employerHiredJobs.js"></script>
+    </body>
 
-        <!--<script type="module" src="js/pay.js"></script>-->
+    <!--<script type="module" src="js/pay.js"></script>-->
 
 
-    </html>
+</html>

@@ -18,6 +18,7 @@
             media="screen" />
         <link rel="stylesheet" href="css/employertheme.css">
         <link rel="stylesheet" href="css/chat.css">
+        <link rel="stylesheet" href="css/sort.css">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
@@ -131,7 +132,7 @@
                     <!-- Start Recent Jobs table -->
                     <table id="searchTable" width="100%" cellspacing="1"
                         class="table
-                        table-striped">
+                        table-striped table-sortable">
                         <thead>
                             <tr>
                                 <th scope="col" onclick="sort_table(jobs, 1,
@@ -319,5 +320,6 @@ $(document).ready(function () {
     <script type="module" src="js/authControl.js"></script>
     <script type="module" src="js/getJobsEmployer.js"></script>
     <script type="module" src="js/rangeSearch.js"></script>
+    <script type="module" src="js/tablesort.js"></script>
 
 </html>
