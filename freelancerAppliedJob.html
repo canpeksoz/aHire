@@ -95,39 +95,30 @@
                         <strong>Jobs</strong>
                     </h2>
                     <!-- Start Recent Jobs table -->
-                    <table width="100%" cellspacing="1" class="table
+                    <!-- Start Recent Jobs table -->
+                    <table id="searchTable" width="100%" cellspacing="1"
+                        class="table
                         table-striped">
                         <thead>
                             <tr>
-                                <th width="55%">Title</th>
-                                <th>Category</th>
-                                <th>Deadline (Day)</th>
-                                <th>Price</th>
+                                <th scope="col" onclick="sort_table(jobs, 1,
+                                    asc2); asc2 *=
+                                    -1; asc3= 1; asc1= 1;">Title</th>
+                                <th scope="col" onclick="sort_table(jobs, 1,
+                                    asc2); asc2 *=
+                                    -1; asc3= 1; asc1= 1;">Category</th>
+                                <th scope="col" onclick="sort_table(jobs, 2,
+                                    asc3); asc3 *=
+                                    -1; asc1= 1; asc2= 1;">Deadline</th>
+                                <th scope="col" onclick="sort_table(jobs, 2,
+                                    asc3); asc3 *=
+                                    -1; asc1= 1; asc2= 1;">Price</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <!-- row 1 -->
-                            <tr>
-                                <th>
-                                    <a href="jobDetails.html" target="title"
-                                        title="Web Design"
-                                        rel="Web Design">Web Designer</a>
-                                </th>
-                                <th>
-                                    <div id="category"
-                                        title="Software&Technology"
-                                        rel="Software&Technology">Software &
-                                        Technology</div>
-                                </th>
-                                <td id="day">2</td>
-                                <td id="price">4000₺</td>
-                                <th><a class="btn btn-info" target="__blank"
-                                        href="freelancerProofOfWork.html">Add
-                                        Proof Of Work</a></th>
+                        <tbody id="jobs">
 
-                                <!--    <td><input type="submit" value="Payment" class="btn" id="goPayment" onclick="PaymentRequest"></td>-->
-                            </tr>
-                            <!-- row 2 -->
+
+
 
 
                         </tbody>
@@ -152,7 +143,7 @@
         <script type="text/javascript">new WOW().init();</script>
         <script type="module" src="/js/firebase.js"></script>
         <script type="module" src="js/authControl.js"></script>
-
+        <script type="module" src="js/freelancerAppliedJobs.js"></script>
     </body>
 
 </html>

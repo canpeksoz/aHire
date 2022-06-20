@@ -30,17 +30,16 @@ const user = auth.currentUser;
             user = auth.currentUser;
               freelancerUpdate.addEventListener('click', (e) => {
                   let Abilities = document.getElementById('Abilities').value;
-
+console.log(Abilities);
             update(ref(database, 'users/' + user.uid + '/profile'),
                 
             {
-
                Abilities: Abilities
  
 })
 
     alert('Update Successfully !')
-    window.location.href = "employerProfile.html";
+  //window.location.href = "freelancerProfile.html";
 
 });
                    
