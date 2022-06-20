@@ -187,7 +187,6 @@ const firebaseConfig = {
                  const transaction = orderData.purchase_units[0].payments.captures[0];
                  alert(`Transaction ${transaction.status}: ${transaction.id}\n\Transaction Completed.`);
                  const element = document.getElementById('paypal-button-container');
-                 //element.innerHTML = '<h3>Thank you for your payment!</h3>';
                  window.location.replace('employerAfterLoginHome.html');
              });
          },

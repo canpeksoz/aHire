@@ -115,6 +115,16 @@
                         <strong>Jobs</strong>
                     </h2>
 
+                    <table border="0" cellspacing="5" cellpadding="5">
+                        <tbody><tr>
+                                <td>Minimum Price:</td>
+                                <td><input type="text" id="min" name="min"></td>
+                            </tr>
+                            <tr>
+                                <td>Maximum Price:</td>
+                                <td><input type="text" id="max" name="max"></td>
+                            </tr>
+                        </tbody></table>
 
 
                     <!-- Start Recent Jobs table -->
@@ -207,6 +217,33 @@
                 rows[i].innerHTML = "<td>" + arr[i].join("</td><td>") + "</td>";
             }
         }
+    </script>
+        <script>
+        /* Custom filtering function which will search data in column four between two values */
+$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+    var min = parseInt($('#min').val(), 10);
+    var max = parseInt($('#max').val(), 10);
+    var Price = parseFloat(data[3]) || 0; // use data for the age column
+ 
+    if (
+        (isNaN(min) && isNaN(max)) ||
+        (isNaN(min) && Price <= max) ||
+        (min <= Price && isNaN(max)) ||
+        (min <= Price && Price <= max)
+    ) {
+        return true;
+    }
+    return false;
+});
+ 
+$(document).ready(function () {
+    var table = $('#searchTable').DataTable();
+ 
+    // Event listener to the two range filtering inputs to redraw on input
+    $('#min, #max').keyup(function () {
+        table.draw();
+    });
+});
     </script>
         <!-- end column content -->
 
