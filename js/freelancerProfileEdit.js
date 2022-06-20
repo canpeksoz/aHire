@@ -39,7 +39,7 @@ console.log(Abilities);
 })
 
     alert('Update Successfully !')
-  //window.location.href = "freelancerProfile.html";
+    window.location.href = "freelancerProfile.html";
 
 });
                    
