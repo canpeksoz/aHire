@@ -27,46 +27,42 @@ const firebaseConfig = {
 
 
   
-function GetAll(tmp, count){
-  
+function GetAll(tmp, count,usermail){
+ 
 while(tmp<count){
-
+   
   const Jobs = ref(database, 'Jobs/'+tmp);
 
   onValue(Jobs, (snapshot) => {
     
-    const data = snapshot.val();
-  //yalnızca işe başlanmadıysa ve iş tamamlanmadıysa burada gösterilebilir  
-if(data.isDone==false && data.isStarted==false){
-
-  var id=data.count;
   
-  var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
-   "<button type='button' id='button'>See Job Details</button>"+ "</td> </tr>" 
-   $(row).appendTo('#jobs');
+    const data = snapshot.val();
+    
+    var id=data.count;
 
-   var button = document.getElementById("button");
+    if(usermail==data.mail){
+    
+   
+  
+    var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
+     "<button type='button' id='button'>See Job Details</button>"+ "</td> </tr>" 
+     $(row).appendTo('#jobs');
  
+     var button = document.getElementById("button");
+   
 button.setAttribute("id",id);
 
-    //buton içinde id hep en son count olarak dönüyor. Her buton aynı sayı dönüyor.
-    
-
-    
- button.addEventListener("click", function(event){
-      console.log(button);
-      window.localStorage.setItem("JobId",id);
-     window.location.href = "/jobDetails.html"
-     
-   });
-   
-
-
-
-
-}
-
-   
+      //buton içinde id hep en son count olarak dönüyor. Her buton aynı sayı dönüyor.
+      
+  
+      
+   button.addEventListener("click", function(event){
+        console.log(button);
+        window.localStorage.setItem("JobId",id);
+       window.location.href = "/jobDetails.html"
+       
+     });
+    } 
  
   });
 
@@ -98,9 +94,12 @@ button.setAttribute("id",id);
   
     if (snapshot.exists()) {
       count= Number(snapshot.val().JobCount);
-
       
-  GetAll(tmp,count);
+      get(child(dbRef, 'users/'+user.uid+'/profile')).then((snapshot) => {
+        const usermail=snapshot.val().mail
+        GetAll(tmp,count,usermail);
+      });
+
   
   
   

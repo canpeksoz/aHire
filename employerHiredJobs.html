@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Hired Jobs</title>
+        <title>Created Jobs</title>
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/font-awesome.min.css" />
@@ -98,10 +98,39 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 style="margin:10px;">Hired
+                    <h2 style="margin:10px;">Created
                         <strong>Jobs</strong>
                     </h2>
                     <!-- Start Recent Jobs table -->
+                    <table id="searchTable" width="100%" cellspacing="1"
+                    class="table
+                    table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" onclick="sort_table(jobs, 1,
+                                asc2); asc2 *=
+                                -1; asc3= 1; asc1= 1;">Title</th>
+                            <th scope="col" onclick="sort_table(jobs, 1,
+                                asc2); asc2 *=
+                                -1; asc3= 1; asc1= 1;">Category</th>
+                            <th scope="col" onclick="sort_table(jobs, 2,
+                                asc3); asc3 *=
+                                -1; asc1= 1; asc2= 1;">Deadline</th>
+                            <th scope="col" onclick="sort_table(jobs, 2,
+                                asc3); asc3 *=
+                                -1; asc1= 1; asc2= 1;">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="jobs">
+
+
+
+
+
+                    </tbody>
+                </table>
+
+
                     <table width="100%" cellspacing="1" class="table
                         table-striped">
                         <thead>
@@ -272,7 +301,7 @@
             <script type="text/javascript">new WOW().init();</script>
             <script type="module" src="/js/firebase.js"></script>
             <script type="module" src="js/authControl.js"></script>
-
+            <script type="module" src="js/getJobs.js"></script>
         </body>
 
         <!--<script type="module" src="js/pay.js"></script>-->

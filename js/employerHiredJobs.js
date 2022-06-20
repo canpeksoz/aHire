@@ -35,38 +35,30 @@ while(tmp<count){
 
   onValue(Jobs, (snapshot) => {
     
-    const data = snapshot.val();
-  //yalnızca işe başlanmadıysa ve iş tamamlanmadıysa burada gösterilebilir  
-if(data.isDone==false && data.isStarted==false){
-
-  var id=data.count;
   
-  var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
-   "<button type='button' id='button'>See Job Details</button>"+ "</td> </tr>" 
-   $(row).appendTo('#jobs');
-
-   var button = document.getElementById("button");
+    const data = snapshot.val();
+    
+    var id=data.count;
+  
+    var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
+     "<button type='button' id='button'>See Job Details</button>"+ "</td> </tr>" 
+     $(row).appendTo('#jobs');
  
+     var button = document.getElementById("button");
+   
 button.setAttribute("id",id);
 
-    //buton içinde id hep en son count olarak dönüyor. Her buton aynı sayı dönüyor.
-    
-
-    
- button.addEventListener("click", function(event){
-      console.log(button);
-      window.localStorage.setItem("JobId",id);
-     window.location.href = "/jobDetails.html"
+      //buton içinde id hep en son count olarak dönüyor. Her buton aynı sayı dönüyor.
+      
+  
+      
+   button.addEventListener("click", function(event){
+        console.log(button);
+        window.localStorage.setItem("JobId",id);
+       window.location.href = "/jobDetails.html"
+       
+     });
      
-   });
-   
-
-
-
-
-}
-
-   
  
   });
 

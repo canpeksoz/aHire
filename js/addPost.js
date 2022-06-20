@@ -89,7 +89,9 @@ get(child(dbRef, '/')).then((snapshot) => {
               count:count,
               isActive:true,
               mail:mail,
-              applyCount:0
+              applyCount:0,
+              isStarted:false,
+              isDone:false
             });
           count++;
             update(ref(database,'/'),{
