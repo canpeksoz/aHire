@@ -60,7 +60,7 @@
                                         <a href="employerProfile.html">Profile</a>
                                     </li>
                                     <li>
-                                        <a href="addPost.html">Post A Jobs</a>
+                                        <a href="addPost.html">Create Post</a>
                                     </li>
                                     
                                    
@@ -219,7 +219,32 @@
                 justify-content: center;
                 flex-direction: column;
                 
-            }
+            }.flex {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.date {
+  font-size: 20px;
+  padding: 0 100px 0 0px;
+  color: rgb(0, 0, 0);
+  border: transparent;
+  border-right: 0;
+  line-height: 2.5;
+  border-radius: 7px 0 0 7px;
+  background: transparent;
+} .category{
+
+  font-size: 18px;
+  padding: 0 100px 0 0px;
+  color: rgb(0, 0, 0);
+  border: transparent;
+  border-right: 0;
+  line-height: 2.5;
+  border-radius: 7px 0 0 7px;
+  background: transparent;
+
+}
 
             .label {
                 color: rgba(226, 227, 232, 0.75);
@@ -268,18 +293,19 @@
 
                 margin-left: 35%;
             }.addPost{
-                height: 40px;
-                width: 100px;
-                margin-bottom: 16px;
+                height: 50px;
+                width: 150px;
+                margin-bottom: 20px;
                 color: #fff;
                  background-color: #428bca;
                 border-color: #357ebd;  
                 display: inline-block;
 
+
                  border: 1px solid transparent;
                 border-radius: 4px;
 
-                margin-left: 35%;
+                margin-left: 46%;
             }
 
             .form-item-double {
@@ -434,19 +460,24 @@
                             <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> required
                                 field</small>
                         </div>
-                        <div class="form-item box-item">
-                            <input type="number" min="0" oninput="this.value = Math.abs(this.value)" name="price" id="price" placeholder="Price" data-required>
+
+                        <div class="form-item box-item flex">
+                            <input type="text" min="0" oninput="this.value = Math.abs(this.value)" name="price" id="price" placeholder="Price : $1,500" data-required>
                             <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> required
                                 field</small>
+
                         </div>
-                        <div class="form-item box-item">
+
+
+                        <div class="form-item box-item date">
+                        <span>Date:</span>
                             <input type="date" name="date" class="tx1" id="date" placeholder="Deadline (date)" data-required>
                             <small class="errorReq"><i class="fa fa-asterisk" aria-hidden="true"></i> required
                                 field</small>
                         </div>
                         <div class="form-item box-item">
 
-                            <div class="form-item box-item">
+                            <div class="category">
                                 
                                 <span>Category:</span>
                                 <select name="Category" class="select" id="category" data-required>
@@ -471,6 +502,12 @@
                 <i class="wave"></i>
             </section>
         </div>
+        <script>
+            
+
+
+
+        </script>
 
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
