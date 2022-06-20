@@ -40,7 +40,7 @@ onAuthStateChanged(auth,(user)=>{
              //data freelancere ise; sayfa kontrolü yaparak employer sayfalarına gitmeyi önler
              if (data == "Freelancer") {
                if (page == "employerAfterLoginHome.html" || page == "employerHiredJobs.html" || page == "addPost.html" || page == "adminAfterLoginHome.html" || page == "adminLogin.html"
-                 || page == "adminPaymentTransaction.html" || page == "adminProfileEdit.html"
+                 || page == "adminPaymentTransaction.html" || page == "adminProfileEdit.html" || page == "jobDetailsEmployer.html"
                  || page == "adminRegister.html" || page == "adminWaitingTickets.html" || page == "employerProfile.html" || page == "employerProfileEdit.html"
                  || page == "employerProofofWork.html" || page == "index.html") {
                  window.location.href = "freelancerAfterLoginHome.html";
@@ -48,7 +48,7 @@ onAuthStateChanged(auth,(user)=>{
                
             } else if (data == "Employer") {
                if (page == "freelancerAfterLoginHome.html" || page == "freelancerHiredJobs.html" || page == "freelancerAppliedJobs.html"
-                 || page == "adminAfterLoginHome.html" || page == "adminLogin.html"
+                 || page == "adminAfterLoginHome.html" || page == "adminLogin.html" || page == "jobDetails.html"
                  || page == "adminPaymentTransaction.html" || page == "adminProfileEdit.html"
                  || page == "adminRegister.html" || page == "adminWaitingTickets.html"
                  || page == "freelancerProfile.html" || page == "freelancerProfileEdit.html"

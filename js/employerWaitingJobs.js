@@ -45,7 +45,7 @@ while(tmp<count){
    
   
     var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
-     "<button type='button' id='button'>See Job Details</button>"+ "</td> </tr>" 
+     "<button type='button' class='btn btn-info' id='button'>See Job Details</button>"+ "</td> </tr>" 
      $(row).appendTo('#jobs');
  
      var button = document.getElementById("button");
