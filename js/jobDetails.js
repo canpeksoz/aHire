@@ -59,33 +59,62 @@ const firebaseConfig = {
     const data1 = snapshot.val();
         
     if(data=="Freelancer"){
- 
+
+      //giriş yapmış id== işi alan kişi ise o zaman proof ekleme görünür tekrar apply olamaz
+      if(user.uid==data1.hiredFreelancer){
+
+        var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
+        "</td> <td>" +
+        "<input type='file' class='btn btn-info' id='button'>Add Proof of Work</input>"+ "</td> <td>" +
+        "<button type='button' class='btn btn-info' id='upload'>Upload Docs</button>"+ "</td></tr>" 
+       $(row).appendTo('#jobs');
      
-  var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
-   "</td> <td>" +
-   "<button type='button' class='btn btn-info' id='button'>APPLY JOB</button>"+ "</td></tr>" 
-  $(row).appendTo('#jobs');
+       var button = document.querySelector("button");
+     
+       upload.addEventListener("click", function(event){
+         let input=document.querySelector("input").files;
+         console.log(input);
+        
+        
+                    // window.location.href = "freelancerAppliedJob.html";
+     
+     
+     }); 
+     
+  
+      }else{
 
-  var button = document.getElementById("button");
+ 
+        var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
+        "</td> <td>" +
+        "<button type='button' class='btn btn-info' id='button'>APPLY JOB</button>"+ "</td></tr>" 
+       $(row).appendTo('#jobs');
+     
+       var button = document.getElementById("button");
+     
+       button.addEventListener("click", function(event){
+         
+        
+         const starCountRef = ref(database,'Jobs/'+localStorage.getItem("JobId"));
+         onValue(starCountRef, (snapshot) => {
+           const data = snapshot.val().applyCount;
+           set(ref(database,'Jobs/'+ localStorage.getItem("JobId") +'/whoApplied/'+data),{
+                 
+             user: user.uid,
+             
+             
+             
+         })
+         });
+                     window.location.href = "freelancerAppliedJob.html";
+     
+     
+     }); 
+     
 
-  button.addEventListener("click", function(event){
+
+      }
     
-   
-    const starCountRef = ref(database,'Jobs/'+localStorage.getItem("JobId"));
-    onValue(starCountRef, (snapshot) => {
-      const data = snapshot.val().applyCount;
-      set(ref(database,'Jobs/'+ localStorage.getItem("JobId") +'/whoApplied/'+data),{
-            
-        user: user.uid,
-        
-        
-        
-    })
-    });
-                window.location.href = "freelancerAppliedJob.html";
-
-
-}); 
  
 
     }else{

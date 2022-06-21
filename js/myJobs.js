@@ -40,15 +40,16 @@ while(tmp<count){
     const data = snapshot.val();
 
     var id=data.count;
-    
-    
-       
+    //Başvuru yapmış olduğu işleri bulur ve onları listeler
+    if(data.whoApplied){
+        data.whoApplied.forEach(myFunction)
 
-      //benim işlerimi listeler
-          if(data.hiredFreelancer==userID){
+        function myFunction(item, index, arr) {
+          arr[index] = item.user;
+          if(arr[index]==userID){
 
             var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
-            "<button type='button' class='btn btn-info' id='button'>Add Proof of Work</button>"+ "</td> </tr>" 
+            "<button type='button' class='btn btn-info' id='button'>See Job Details</button>"+ "</td> </tr>" 
             $(row).appendTo('#jobs');
         
             var button = document.getElementById("button");
@@ -69,9 +70,9 @@ while(tmp<count){
 
 
           }
-        
+        }
 
-    
+    }
 
 
     
@@ -91,7 +92,10 @@ while(tmp<count){
 
   
   const ar=[];
- 
+  //array.forEach(e => {
+      
+ // });
+  // get jobs data from firebase
   let count;
   onAuthStateChanged(auth,(user)=>{
     
