@@ -27,11 +27,15 @@ const firebaseConfig = {
 
 
   
-function GetAll(tmp, count){
-  
+function GetAll(tmp, count) {
+  alert("Job Count:" + count);
+  console.log(count);
+
+   "<tr> <td>" +  count + "</td><td></tr>"
 while(tmp<count){
 
-  const Jobs = ref(database, 'Jobs/'+tmp);
+  const Jobs = ref(database, 'Jobs/' + tmp);
+  
 
   onValue(Jobs, (snapshot) => {
     
@@ -39,9 +43,10 @@ while(tmp<count){
   //yalnızca işe başlanmadıysa ve iş tamamlanmadıysa burada gösterilebilir  
 if(data.isDone==false && data.isStarted==false){
 
-  var id=data.count;
+  var id = data.count;
   
-  var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
+  
+  var row = "<tr> <td>" +  id + "</td><td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
    "<button class='btn btn-info' type='button' id='button'>See Job Details</button>"+ "</td> </tr>" 
    $(row).appendTo('#jobs');
 

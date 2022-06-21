@@ -36,13 +36,14 @@ while(tmp<count){
   onValue(Jobs, (snapshot) => {
     
     const data = snapshot.val();
+    console.log(count)
   //yalnızca işe başlanmadıysa ve iş tamamlanmadıysa burada gösterilebilir  
 if(data.isDone==false && data.isStarted==false){
 
   var id=data.count;
   
-  var row = "<tr> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
-   "<button class='btn btn-info' type='button' id='button'>See Job Details</button>"+ "</td> </tr>" 
+  var row = "<tr><td>" +  snapshot.val().title + "</td> <td>" +  snapshot.val().title + "</td> <td>" + snapshot.val().category + "</td> <td>" + snapshot.val().date + "</td>  <td>" + snapshot.val().price + "</td> <td>" +
+   "<button class='btn btn-info' type='button' id='button'>See Job Details</button>"+ "</td> <td>"+ "<a class='btn btn-info' href='demo.html' type='button' id='button'>DEMO</a>"+ "</td> </tr>" 
    $(row).appendTo('#jobs');
 
    var button = document.getElementById("button");

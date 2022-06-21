@@ -91,7 +91,8 @@ get(child(dbRef, '/')).then((snapshot) => {
               mail:mail,
               applyCount:0,
               isStarted:false,
-              isDone:false
+            isDone: false,
+              programLanguage:"JAVA"
             });
           count++;
             update(ref(database,'/'),{
