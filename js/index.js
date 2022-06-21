@@ -59,3 +59,4 @@ if(data.isDone==false && data.isStarted==false){
  // });
   // get jobs data from firebase
   let count;
+ 

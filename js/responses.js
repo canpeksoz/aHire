@@ -21,14 +21,14 @@ function getBotResponse(input) {
     }if (input == "Can I get information") {
         return "aHire is a platform where service providers can easily reach their customers and bid on their business requests without any marketing or advertising expenses.";
     }if (input == "Can I create multiple job ads") {
-        return "How will I pay for it";
-    }if (input == "if you receive an offer from aHire and make an agreement with a service provider, you can safely pay the business price to the service provider online through us.") {
-        return "Hello there!";
+        return "Yes, of course.";
+    }if (input == "How will I pay for it") {
+        return "If you receive an offer from aHire and make an agreement with a service provider, you can safely pay the business price to the service provider online through us.";
     }
     else if (input == "goodbye") {
         return "Talk to you later!";
     }else {
-        return "How can I use this site";
+        return"Visit here to see FAQ : \n\ " + "http://127.0.0.1:5500/FAQ.html" ;
 
     }
     
