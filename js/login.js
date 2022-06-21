@@ -42,7 +42,7 @@ var password=document.getElementById('password').value;
         last_login: dt,
    
       })
-      alert("user logged in");
+      alert("Login Successfully");
   
       user = auth.currentUser;
 

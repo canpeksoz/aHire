@@ -130,6 +130,3 @@ get(child(dbRef, '/')).then((snapshot) => {
 
    })
     
-
-
-    // create post

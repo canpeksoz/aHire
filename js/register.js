@@ -65,14 +65,6 @@ const errorCode = error.code;
 
 });
 
-     // console.log(typeSelect)
-   //if (typeSelect == 'Freelancer') {
-         //   window.location.href = "freelancerAfterLoginHome.html";
-         // } else {
-         //   window.location.href = "employerAfterLoginHome.html";
-         // }
-
-
 
 });
 

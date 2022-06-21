@@ -1,4 +1,4 @@
-// Collapsible
+// Chatbox kutucuğu açılır kapanır
 var coll = document.getElementsByClassName("collapsible");
 
 for (let i = 0; i < coll.length; i++) {
